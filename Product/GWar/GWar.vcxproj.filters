@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Win32">
+      <UniqueIdentifier>{17652e99-5621-4cad-b5fc-3c6ec6ffbf1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{17a14843-5171-4962-be1a-701cf3b980a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene">
+      <UniqueIdentifier>{d827615b-0476-4972-bf6f-76548cd250cc}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Win32\WinMain.cpp">
+      <Filter>Win32</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GWarMain.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\GWarGigant.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\GWarScene_Battle.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Src\Scene\GWarScene_MainMenu.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Src\GWarDef.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GWarMain.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GWarGigaint.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\GWarScene_Battle.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\Scene\GWarScene_MainMenu.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Src\GWarUserData.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

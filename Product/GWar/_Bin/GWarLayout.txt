@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UNICODE" ?>
+
+<TGameLayout ver='1.0'>
+	<TScene name='MainMenu' id='100'>
+		
+	</TScene>
+
+</TGameLayout>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{059fd4f0-36c7-4fd2-b789-27903066a423}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src">
+      <UniqueIdentifier>{ed04acb3-ac6c-4277-ac0c-e97133e2cbf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Src\Scene">
+      <UniqueIdentifier>{e44b1592-2287-404c-b764-65420b1377cd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="WinMain.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\HelloWorld.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\MainScene.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\ChicoChico.cpp">
+      <Filter>Src\Scene</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\HelloWorld.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\MainScene.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\ChicoChico.h">
+      <Filter>Src\Scene</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
