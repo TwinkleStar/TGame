@@ -1,0 +1,17 @@
+Step 1. 안드로이드 환경 설정
+  1. jdk 설치
+    http://www.oracle.com/
+  2. 이클립스 설치 
+    http://www.eclipse.org/
+	Help->Install New Software
+	Add 버튼 
+	Name : 		ADT
+	Location : 	https://dl-ssl.google.com/android/eclipse
+
+  3. 안드로이드 sdk 다운로드 
+    http://developer.android.com/sdk
+
+Step 2. Jni 환경 설정
+
+
+
