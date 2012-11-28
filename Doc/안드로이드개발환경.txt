@@ -1,17 +1,17 @@
-Step 1. ¾Èµå·ÎÀÌµå È¯°æ ¼³Á¤
-  1. jdk ¼³Ä¡
+ï»¿Step 1. ì•ˆë“œë¡œì´ë“œ í™˜ê²½ ì„¤ì •
+  1. jdk ì„¤ì¹˜
     http://www.oracle.com/
-  2. ÀÌÅ¬¸³½º ¼³Ä¡ 
+  2. ì´í´ë¦½ìŠ¤ ì„¤ì¹˜ 
     http://www.eclipse.org/
 	Help->Install New Software
-	Add ¹öÆ° 
+	Add ë²„íŠ¼ 
 	Name : 		ADT
 	Location : 	https://dl-ssl.google.com/android/eclipse
 
-  3. ¾Èµå·ÎÀÌµå sdk ´Ù¿î·Îµå 
+  3. ì•ˆë“œë¡œì´ë“œ sdk ë‹¤ìš´ë¡œë“œ 
     http://developer.android.com/sdk
 
-Step 2. Jni È¯°æ ¼³Á¤
+Step 2. Jni í™˜ê²½ ì„¤ì •
 
 
 
