@@ -12,39 +12,39 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Win32\WinMain.cpp">
+    <ClCompile Include="WinMain.cpp">
       <Filter>Win32</Filter>
     </ClCompile>
-    <ClCompile Include="Src\GWarMain.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\GWarGigant.cpp">
-      <Filter>Src</Filter>
-    </ClCompile>
-    <ClCompile Include="Src\Scene\GWarScene_Battle.cpp">
+    <ClCompile Include="..\Src\Scene\GWarScene_Battle.cpp">
       <Filter>Src\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Src\Scene\GWarScene_MainMenu.cpp">
+    <ClCompile Include="..\Src\Scene\GWarScene_MainMenu.cpp">
       <Filter>Src\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\GWarGigant.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\GWarMain.cpp">
+      <Filter>Src</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\GWarDef.h">
-      <Filter>Src</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\GWarMain.h">
-      <Filter>Src</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\GWarGigaint.h">
-      <Filter>Src</Filter>
-    </ClInclude>
-    <ClInclude Include="Src\Scene\GWarScene_Battle.h">
+    <ClInclude Include="..\Src\Scene\GWarScene_Battle.h">
       <Filter>Src\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\Scene\GWarScene_MainMenu.h">
+    <ClInclude Include="..\Src\Scene\GWarScene_MainMenu.h">
       <Filter>Src\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Src\GWarUserData.h">
+    <ClInclude Include="..\Src\GWarDef.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\GWarGigaint.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\GWarMain.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\GWarUserData.h">
       <Filter>Src</Filter>
     </ClInclude>
   </ItemGroup>

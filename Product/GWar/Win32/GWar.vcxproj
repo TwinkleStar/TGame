@@ -39,7 +39,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>$(ProjectDir)_Bin\</OutDir>
+    <OutDir>$(ProjectDir)..\_Bin\</OutDir>
     <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -78,19 +78,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Src\GWarGigant.cpp" />
-    <ClCompile Include="Src\GWarMain.cpp" />
-    <ClCompile Include="Src\Scene\GWarScene_Battle.cpp" />
-    <ClCompile Include="Src\Scene\GWarScene_MainMenu.cpp" />
-    <ClCompile Include="Win32\WinMain.cpp" />
+    <ClCompile Include="..\Src\GWarGigant.cpp" />
+    <ClCompile Include="..\Src\GWarMain.cpp" />
+    <ClCompile Include="..\Src\Scene\GWarScene_Battle.cpp" />
+    <ClCompile Include="..\Src\Scene\GWarScene_MainMenu.cpp" />
+    <ClCompile Include="WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Src\GWarDef.h" />
-    <ClInclude Include="Src\GWarGigaint.h" />
-    <ClInclude Include="Src\GWarMain.h" />
-    <ClInclude Include="Src\GWarUserData.h" />
-    <ClInclude Include="Src\Scene\GWarScene_Battle.h" />
-    <ClInclude Include="Src\Scene\GWarScene_MainMenu.h" />
+    <ClInclude Include="..\Src\GWarDef.h" />
+    <ClInclude Include="..\Src\GWarGigaint.h" />
+    <ClInclude Include="..\Src\GWarMain.h" />
+    <ClInclude Include="..\Src\GWarUserData.h" />
+    <ClInclude Include="..\Src\Scene\GWarScene_Battle.h" />
+    <ClInclude Include="..\Src\Scene\GWarScene_MainMenu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
