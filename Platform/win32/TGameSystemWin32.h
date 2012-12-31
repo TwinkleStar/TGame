@@ -32,6 +32,8 @@ public:
 
 	void Release();
 
+	unsigned int GetTick();
+
 	////////////////////////////////////////
 
 	int MsgProc(UINT msg , WPARAM wParam , LPARAM lParam , LRESULT* pRt);

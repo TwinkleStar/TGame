@@ -55,7 +55,7 @@ int CTGameSystemWin32::Initialize(ITGameMain* pMain)
 	{
 		m_pMain = pMain;
 
-		m_pTGameLoop = new CTGameLoop;
+		m_pTGameLoop = new CTGameLoop(this);
 
 		m_pTGCanvas	 = new CTGCanvasWin32;
 
@@ -212,6 +212,10 @@ void CTGameSystemWin32::Release()
 {
 	Clear();
 	delete this;
+}
+unsigned int CTGameSystemWin32::GetTick()
+{
+	return GetTickCount();
 }
 
 int	CTGameSystemWin32::CreateGLWindow()

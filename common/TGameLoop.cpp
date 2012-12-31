@@ -4,8 +4,9 @@
 #include "TGameLoop.h"
 
 
-CTGameLoop::CTGameLoop()
+CTGameLoop::CTGameLoop(ITGameSystem* pSys)
 {
+	m_pSys			= pSys;
 	m_pCurScene		= NULL;
 	m_pNextScene	= NULL;
 }
@@ -38,7 +39,8 @@ int CTGameLoop::OnProcess()
 {
 	if(m_pCurScene)
 	{
-		m_pCurScene->OnProcess(0);
+	
+		m_pCurScene->OnProcess(m_pSys->GetTick());
 	}
 	return 0;
 }

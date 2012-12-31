@@ -19,6 +19,8 @@ CTGFileWin32::~CTGFileWin32()
 
 int  CTGFileWin32::Open(const char* szFile , int nOpen)
 {
+// 	char szPath[MAX_PATH] = {0,};
+// 	GetModuleFileNameA(NULL, szPath , MAX_PATH);
 	m_hFile = CreateFileA(szFile , GENERIC_READ , FILE_SHARE_READ , NULL , OPEN_EXISTING , 0 , NULL);
 	if(m_hFile != INVALID_HANDLE_VALUE)
 	{

@@ -19,7 +19,9 @@ public:
 	int End();
 
 protected:
-	ITGGLTexture*	m_pTex;
+	ITGGLTexture*		m_pTex;
+	float				m_fBGOpacity;
+	unsigned int		m_dwTick;
 };
 
 

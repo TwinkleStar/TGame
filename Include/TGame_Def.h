@@ -13,16 +13,28 @@
 // Color 
 typedef unsigned int	TGCOLOR;
 
-#define TGCOLOR_TO_3F(cl)		(((cl & 0xFF) == 0)?0.0f:(cl & 0xFF) / 255.0f) ,\
+#define TGCOLOR_TO_3F(cl)		(((cl & 0xFF0000) == 0)?0.0f:((cl & 0xFF0000) >> 16) / 255.0f), \
 								(((cl & 0xFF00) == 0)?0.0f:((cl & 0xFF00) >> 8) / 255.0f) , \
-								(((cl & 0xFF0000) == 0)?0.0f:((cl & 0xFF0000) >> 16) / 255.0f)
+								(((cl & 0xFF) == 0)?0.0f:(cl & 0xFF) / 255.0f)
+								
 
 
-
-#define TGCOLOR_TO_4F(cl)		(((cl & 0xFF) == 0)?0.0f:(cl & 0xFF) / 255.0f) ,\
+// R , G , B , A
+#define TGCOLOR_TO_4F(cl)		(((cl & 0xFF0000) == 0)?0.0f:((cl & 0xFF0000) >> 16) / 255.0f) , \
 								(((cl & 0xFF00) == 0)?0.0f:((cl & 0xFF00) >> 8) / 255.0f) , \
-								(((cl & 0xFF0000) == 0)?0.0f:((cl & 0xFF0000) >> 16) / 255.0f) , \
+								(((cl & 0xFF) == 0)?0.0f:(cl & 0xFF) / 255.0f) ,\
 								(((cl & 0xFF000000) == 0)?0.0f:((cl & 0xFF000000) >> 24) / 255.0f)  
+
+#define GET_A_VALUE(c)			(BYTE)((c & 0xFF000000) >>24)
+#define GET_B_VALUE(c)			(BYTE)(c & 0x000000FF)
+#define GET_G_VALUE(c)			(BYTE)((c & 0x0000FF00) >>8)
+#define GET_R_VALUE(c)			(BYTE)((c & 0x00FF0000) >>16)	
+
+
+#define GET_A_VALUE_F(c)		((GET_A_VALUE(c) > 0)? ((float)GET_A_VALUE(c) / 255) : (0.0f) )
+#define GET_B_VALUE_F(c)		((GET_B_VALUE(c) > 0)? ((float)GET_B_VALUE(c) / 255) : (0.0f) )
+#define GET_G_VALUE_F(c)		((GET_G_VALUE(c) > 0)? ((float)GET_G_VALUE(c) / 255) : (0.0f) )
+#define GET_R_VALUE_F(c)		((GET_R_VALUE(c) > 0)? ((float)GET_R_VALUE(c) / 255) : (0.0f) )
 
 
 typedef unsigned char	TGBYTE;

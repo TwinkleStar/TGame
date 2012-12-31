@@ -35,6 +35,8 @@ public:
 	virtual	int GetState(int nStateID) = 0;
 
 	virtual	void Release() = 0;
+
+	virtual	unsigned int GetTick() = 0;
 };
 
 

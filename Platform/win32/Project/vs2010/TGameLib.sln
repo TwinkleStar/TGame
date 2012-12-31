@@ -9,9 +9,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HelloWorld", "..\..\..\..\S
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GWar", "..\..\..\..\Product\GWar\Win32\GWar.vcxproj", "{95345FC2-F6B1-4609-A5AE-0A81CDCA606A}"
-	ProjectSection(ProjectDependencies) = postProject
-		{49875996-EA32-466C-951E-2C217642B0D0} = {49875996-EA32-466C-951E-2C217642B0D0}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

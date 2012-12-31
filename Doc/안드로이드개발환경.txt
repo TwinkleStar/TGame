@@ -11,6 +11,12 @@
   3. 안드로이드 sdk 다운로드 
     http://developer.android.com/sdk
 
+  4. 환경변수 설정 
+	JAVA_HOME
+		
+	ANDROID_NDK_ROOT
+	CLASSPATH 
+
 Step 2. Jni 환경 설정
 
 

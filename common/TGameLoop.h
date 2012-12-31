@@ -2,13 +2,13 @@
 #ifndef _TGAMELOOP_H__
 #define _TGAMELOOP_H__
 
-
+class ITGameSystem;
 class ITGameLoop;
 class ITGameCanvas;
 class CTGameLoop : public ITGameLoop
 {
 public:
-	CTGameLoop();
+	CTGameLoop(ITGameSystem* pSys);
 	~CTGameLoop();
 
 
@@ -18,6 +18,7 @@ public:
 	int DoRender(ITGameCanvas* pTGCanvas);
 
 public:
+	ITGameSystem*	m_pSys;
 	CTGScene* m_pCurScene;
 	CTGScene* m_pNextScene;
 };

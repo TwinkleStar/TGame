@@ -23,9 +23,13 @@ CTGCanvasWin32::CTGCanvasWin32()
 	m_hDC	= NULL;
 	m_hRC	= NULL;
 
-	m_nWidth	= 320;
+// 	m_nWidth	= 320;
+// 	m_nHeight	= 480;
+	m_nWidth	= 800;
 	m_nHeight	= 480;
+
 }
+
 
 CTGCanvasWin32::~CTGCanvasWin32()
 {
@@ -71,7 +75,7 @@ int		CTGCanvasWin32::Init(HWND hWnd, int nScrWidth , int nScrHeight)
 			{
 				m_nScrWidth  = nScrWidth;
 				m_nScrHeight = nScrHeight;
-				m_nWidth= nScrWidth; m_nHeight = nScrHeight;
+
 				// OpenGL √ ±‚»≠ //
 				glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
 				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Black Background
@@ -82,9 +86,10 @@ int		CTGCanvasWin32::Init(HWND hWnd, int nScrWidth , int nScrHeight)
 			//	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
 			//	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
 			//	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-	//			glEnable(GL_DEPTH_TEST); 
-				glDepthFunc(GL_NEVER);								// The Type Of Depth Testing To Do
-
+		//		glEnable(GL_DEPTH_TEST); 
+				glEnable(GL_DEPTH_TEST); 
+				glDepthFunc(GL_ALWAYS);								// The Type Of Depth Testing To Do
+				
 				glMatrixMode (GL_PROJECTION);
 				glLoadIdentity ();
 				glOrtho (0, m_nWidth, m_nHeight, 0, 0, 1);

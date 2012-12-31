@@ -1,6 +1,7 @@
 
 #include "GWarMain.h"
 #include "./Scene/GWarScene_MainMenu.h"
+#include "./Scene/GWarScene_Battle.h"
 
 CGWarMain::CGWarMain()
 {
@@ -20,14 +21,15 @@ int CGWarMain::OnInit(ITGameSystem* pSys)
 		ITGameLoop* pLoop = NULL;
 		if(m_pSys->Query(ID_TGAMELOOP , (void**)&pLoop) == TGAME_OK)
 		{
-			CGWarScene_MainMenu* pMainMenu = new CGWarScene_MainMenu(m_pSys);
+			CGWarScene_MainMenu* pScene = new CGWarScene_MainMenu(m_pSys);
+	//		CGWarScene_Battle* pScene = new CGWarScene_Battle(m_pSys);
 
-			if(pMainMenu)
+			if(pScene)
 			{
-				pMainMenu->LoadLayOut();
+				pScene->LoadLayOut();
 			}
 
-			pLoop->SetSecne(pMainMenu , 0);
+			pLoop->SetSecne(pScene , 0);
 
 
 			return TGAME_OK;

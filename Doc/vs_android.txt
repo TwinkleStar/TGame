@@ -1,0 +1,22 @@
+
+vs-android 
+	samples & setting
+http://code.google.com/p/vs-android/
+
+
+1. 환경 설정 
+
+java 
+android sdk
+android ndk
+ant 
+
+visual studio 
+관리자 권한 실행. 
+
+2. opengl es 설정 
+ link command line 
+ 추가 옵션 에 
+-lGLESv1_CM 
+ 추가 
+

@@ -16,6 +16,4 @@ class		ITGFile;
 int			LoadPng(ITGFile* pTGFile , TGameDIB* pDIB);
 
 
-
-
 #endif //_TGAMEUTIL_H__

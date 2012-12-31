@@ -1,9 +1,17 @@
 
+#ifdef _WIN32
 #define  WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
 #include <gl/GL.h>
 #include <gl/GLU.h>
+#endif //_WIN32
+
+#ifdef _ANDROID
+#include <stdlib.h>
+#include <GLES/gl.h>
+
+#endif //
 
 #include "../Include/TGame.h"
 
@@ -58,7 +66,7 @@ int		CTGGLTexture::Load(ITGFile* pFile)
 					glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //<8> 
 
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_nWidth , m_nHeight , 0,    
-						GL_BGRA_EXT, GL_UNSIGNED_BYTE, m_pDIB); 
+						GL_RGBA, GL_UNSIGNED_BYTE, m_pDIB); 
 					
 
 					pFile->Release();

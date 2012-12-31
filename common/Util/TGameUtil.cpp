@@ -128,3 +128,4 @@ int			LoadPng(ITGFile* pTGFile , TGameDIB* pDIB)
 
 	return 0;
 }
+

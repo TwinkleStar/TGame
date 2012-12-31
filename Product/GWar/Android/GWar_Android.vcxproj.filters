@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="AndroidApk\build.xml">
+      <Filter>Apk</Filter>
+    </None>
+    <None Include="AndroidApk\AndroidManifest.xml">
+      <Filter>Apk</Filter>
+    </None>
+    <None Include="AndroidApk\project.properties">
+      <Filter>Apk</Filter>
+    </None>
+    <None Include="AndroidApk\src\com\twinkle\gwar\GWarActivity.java">
+      <Filter>Apk\Java</Filter>
+    </None>
+    <None Include="AndroidApk\src\com\twinkle\gwar\TGameAndroid.java">
+      <Filter>Apk\Java</Filter>
+    </None>
+    <None Include="AndroidApk\src\com\twinkle\gwar\TGameGLSrufaceView.java">
+      <Filter>Apk\Java</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Apk">
+      <UniqueIdentifier>{6b820e82-6575-406d-b035-9b94a44259eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cpp">
+      <UniqueIdentifier>{a16477be-50de-43ff-88e3-295533a08510}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cpp\Scene">
+      <UniqueIdentifier>{94124e08-5b1b-444d-b780-44a4167b8342}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGame">
+      <UniqueIdentifier>{328dd356-86e4-4b31-92d6-0796bb529abd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGame\OpenLib">
+      <UniqueIdentifier>{1c4852a4-9142-486b-9d4a-0d43f190ed78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGame\OpenLib\libpng">
+      <UniqueIdentifier>{62b3545e-f5d1-4407-b73d-f3308fe1db3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TGame\OpenLib\zlib">
+      <UniqueIdentifier>{9d165244-8178-49d4-8cdf-c945fe7c29bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Apk\Java">
+      <UniqueIdentifier>{e39c09a6-237a-44c5-846a-3ed21f6f849f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Src\GWarDef.h">
+      <Filter>Cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\GWarGigaint.h">
+      <Filter>Cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\GWarMain.h">
+      <Filter>Cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\GWarUserData.h">
+      <Filter>Cpp</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Scene\GWarScene_MainMenu.h">
+      <Filter>Cpp\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Src\Scene\GWarScene_Battle.h">
+      <Filter>Cpp\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\TGameLoop.h">
+      <Filter>TGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\libpng\png.h">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngconf.h">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngdebug.h">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\libpng\pnginfo.h">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\libpng\pnglibconf.h">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngpriv.h">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngstruct.h">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\crc32.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\deflate.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\gzguts.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\inffast.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\inffixed.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\inflate.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\inftrees.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\trees.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\zconf.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\zlib.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\OpenLib\zlib\zutil.h">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\TGCanvas.h">
+      <Filter>TGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\common\TGGLTexture.h">
+      <Filter>TGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Src\GWarGigant.cpp">
+      <Filter>Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\GWarMain.cpp">
+      <Filter>Cpp</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Scene\GWarScene_Battle.cpp">
+      <Filter>Cpp\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Src\Scene\GWarScene_MainMenu.cpp">
+      <Filter>Cpp\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\TGameLoop.cpp">
+      <Filter>TGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\TGObject.cpp">
+      <Filter>TGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\TGScene.cpp">
+      <Filter>TGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\libpng\png.c">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngerror.c">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngmem.c">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngrio.c">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngtrans.c">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngwio.c">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngwtran.c">
+      <Filter>TGame\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\adler32.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\compress.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\crc32.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\deflate.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\infback.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\inffast.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\inflate.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\inftrees.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\trees.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\uncompr.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\OpenLib\zlib\zutil.c">
+      <Filter>TGame\OpenLib\zlib</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\TGCanvas.cpp">
+      <Filter>TGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\common\TGGLTexture.cpp">
+      <Filter>TGame</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
