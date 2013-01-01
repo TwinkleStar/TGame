@@ -33,27 +33,6 @@
     <Filter Include="Apk\Java">
       <UniqueIdentifier>{e39c09a6-237a-44c5-846a-3ed21f6f849f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Common">
-      <UniqueIdentifier>{b0310990-89df-456b-8eb5-b3baabc3a66c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common\OpenLib">
-      <UniqueIdentifier>{f449b199-fdbe-46b0-baa7-f673bfe34a94}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common\OpenLib\libpng">
-      <UniqueIdentifier>{ff7470ac-18c3-4c73-b483-7e0f1c3eaf15}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common\OpenLib\zlib">
-      <UniqueIdentifier>{ecb10a66-7c24-4cc2-90b3-f71945575bd7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Common\util">
-      <UniqueIdentifier>{67d3e616-afd5-4ec4-97ea-9388b2694693}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Android">
-      <UniqueIdentifier>{97c65fc2-756d-4fd2-ba62-4582610afe03}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="util">
-      <UniqueIdentifier>{6b8ef001-169b-49f2-afec-f1f64d83fe5b}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Src\GWarDef.h">
@@ -74,81 +53,6 @@
     <ClInclude Include="..\Src\Scene\GWarScene_Battle.h">
       <Filter>Cpp\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\common\TGameLoop.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\TGCanvas.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\TGGLTexture.h">
-      <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\png.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngconf.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngdebug.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pnginfo.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pnglibconf.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngpriv.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngstruct.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\crc32.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\deflate.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\gzguts.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inffast.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inffixed.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inflate.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inftrees.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\trees.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\zconf.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\zlib.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\zutil.h">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\common\Util\TGameUtil.h">
-      <Filter>Common\util</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Platform\android\TGFileAndroid.h">
-      <Filter>Android</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Platform\android\TGameSystemAndroid.h">
-      <Filter>Android</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\Platform\android\TGCanvasAndroid.h">
-      <Filter>Android</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Src\GWarGigant.cpp">
@@ -162,87 +66,6 @@
     </ClCompile>
     <ClCompile Include="..\Src\Scene\GWarScene_MainMenu.cpp">
       <Filter>Cpp\Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\TGameLoop.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\TGObject.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\TGScene.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\TGCanvas.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\TGGLTexture.cpp">
-      <Filter>Common</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\png.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngerror.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngmem.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngrio.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngtrans.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngwio.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngwtran.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\adler32.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\compress.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\crc32.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\deflate.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\infback.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\inffast.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\inflate.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\inftrees.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\trees.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\uncompr.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\zutil.c">
-      <Filter>Common\OpenLib\zlib</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\common\Util\TGameUtil.cpp">
-      <Filter>Common\util</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Platform\android\TGameSystemAndroid.cpp">
-      <Filter>Android</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Platform\android\TGCanvasAndroid.cpp">
-      <Filter>Android</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\Platform\android\TGFileAndroid.cpp">
-      <Filter>Android</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

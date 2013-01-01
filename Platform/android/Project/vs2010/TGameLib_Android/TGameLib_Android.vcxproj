@@ -36,6 +36,7 @@
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <AndroidAPILevel>android-9</AndroidAPILevel>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -75,17 +76,25 @@
       <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ClCompile>
-      <PreprocessorDefinitions>_ANDROID</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_ANDROID;OS_2</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\png.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngerror.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngget.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngmem.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngpread.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngread.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrio.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrtran.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrutil.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngset.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngtrans.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwio.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwrite.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwtran.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwutil.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\adler32.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\compress.c" />
     <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\crc32.c" />

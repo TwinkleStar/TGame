@@ -27,31 +27,6 @@
     <None Include="AndroidApk\src\com\twinkle\gwar\TGameGLSrufaceView.java" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\png.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngconf.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngdebug.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pnginfo.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pnglibconf.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngpriv.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\libpng\pngstruct.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\crc32.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\deflate.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\gzguts.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inffast.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inffixed.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inflate.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\inftrees.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\trees.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\zconf.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\zlib.h" />
-    <ClInclude Include="..\..\..\common\OpenLib\zlib\zutil.h" />
-    <ClInclude Include="..\..\..\common\TGameLoop.h" />
-    <ClInclude Include="..\..\..\common\TGCanvas.h" />
-    <ClInclude Include="..\..\..\common\TGGLTexture.h" />
-    <ClInclude Include="..\..\..\common\Util\TGameUtil.h" />
-    <ClInclude Include="..\..\..\Platform\android\TGameSystemAndroid.h" />
-    <ClInclude Include="..\..\..\Platform\android\TGCanvasAndroid.h" />
-    <ClInclude Include="..\..\..\Platform\android\TGFileAndroid.h" />
     <ClInclude Include="..\Src\GWarDef.h" />
     <ClInclude Include="..\Src\GWarGigaint.h" />
     <ClInclude Include="..\Src\GWarMain.h" />
@@ -60,33 +35,6 @@
     <ClInclude Include="..\Src\Scene\GWarScene_MainMenu.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\png.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngerror.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngmem.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngrio.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngtrans.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngwio.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\libpng\pngwtran.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\adler32.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\compress.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\crc32.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\deflate.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\infback.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\inffast.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\inflate.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\inftrees.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\trees.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\uncompr.c" />
-    <ClCompile Include="..\..\..\common\OpenLib\zlib\zutil.c" />
-    <ClCompile Include="..\..\..\common\TGameLoop.cpp" />
-    <ClCompile Include="..\..\..\common\TGCanvas.cpp" />
-    <ClCompile Include="..\..\..\common\TGGLTexture.cpp" />
-    <ClCompile Include="..\..\..\common\TGObject.cpp" />
-    <ClCompile Include="..\..\..\common\TGScene.cpp" />
-    <ClCompile Include="..\..\..\common\Util\TGameUtil.cpp" />
-    <ClCompile Include="..\..\..\Platform\android\TGameSystemAndroid.cpp" />
-    <ClCompile Include="..\..\..\Platform\android\TGCanvasAndroid.cpp" />
-    <ClCompile Include="..\..\..\Platform\android\TGFileAndroid.cpp" />
     <ClCompile Include="..\Src\GWarGigant.cpp" />
     <ClCompile Include="..\Src\GWarMain.cpp" />
     <ClCompile Include="..\Src\Scene\GWarScene_Battle.cpp" />
@@ -147,10 +95,11 @@
     </AntBuild>
     <ClCompile>
       <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_ANDROID;</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_ANDROID;OS_2</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalDependencies>TGameLib_Android.so</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

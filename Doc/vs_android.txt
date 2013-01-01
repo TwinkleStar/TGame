@@ -20,3 +20,5 @@ visual studio
 -lGLESv1_CM 
  Ãß°¡ 
 
+
+libpng predefine OS_2

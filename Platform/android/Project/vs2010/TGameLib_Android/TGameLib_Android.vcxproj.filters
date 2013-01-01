@@ -16,27 +16,6 @@
     <ClCompile Include="..\..\..\..\..\common\TGGLTexture.cpp">
       <Filter>Common</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\png.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngerror.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngmem.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrio.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngtrans.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwio.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwtran.c">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\adler32.c">
       <Filter>Common\OpenLib\zlib</Filter>
     </ClCompile>
@@ -82,6 +61,51 @@
     <ClCompile Include="..\..\..\..\..\common\Util\TGameUtil.cpp">
       <Filter>Common\util</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\png.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngerror.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngget.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngmem.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngpread.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngread.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrio.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrtran.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrutil.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngset.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngtrans.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwio.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwrite.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwtran.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwutil.c">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\..\common\TGameLoop.h">
@@ -92,27 +116,6 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\common\TGGLTexture.h">
       <Filter>Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\png.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngconf.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngdebug.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pnginfo.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pnglibconf.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngpriv.h">
-      <Filter>Common\OpenLib\libpng</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngstruct.h">
-      <Filter>Common\OpenLib\libpng</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\crc32.h">
       <Filter>Common\OpenLib\zlib</Filter>
@@ -158,6 +161,27 @@
     </ClInclude>
     <ClInclude Include="..\..\..\..\..\common\Util\TGameUtil.h">
       <Filter>Common\util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\png.h">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngconf.h">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngdebug.h">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pnginfo.h">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pnglibconf.h">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngpriv.h">
+      <Filter>Common\OpenLib\libpng</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngstruct.h">
+      <Filter>Common\OpenLib\libpng</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
