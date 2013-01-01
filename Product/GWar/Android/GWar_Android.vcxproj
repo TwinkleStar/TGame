@@ -48,6 +48,10 @@
     <ClInclude Include="..\..\..\common\TGameLoop.h" />
     <ClInclude Include="..\..\..\common\TGCanvas.h" />
     <ClInclude Include="..\..\..\common\TGGLTexture.h" />
+    <ClInclude Include="..\..\..\common\Util\TGameUtil.h" />
+    <ClInclude Include="..\..\..\Platform\android\TGameSystemAndroid.h" />
+    <ClInclude Include="..\..\..\Platform\android\TGCanvasAndroid.h" />
+    <ClInclude Include="..\..\..\Platform\android\TGFileAndroid.h" />
     <ClInclude Include="..\Src\GWarDef.h" />
     <ClInclude Include="..\Src\GWarGigaint.h" />
     <ClInclude Include="..\Src\GWarMain.h" />
@@ -79,6 +83,10 @@
     <ClCompile Include="..\..\..\common\TGGLTexture.cpp" />
     <ClCompile Include="..\..\..\common\TGObject.cpp" />
     <ClCompile Include="..\..\..\common\TGScene.cpp" />
+    <ClCompile Include="..\..\..\common\Util\TGameUtil.cpp" />
+    <ClCompile Include="..\..\..\Platform\android\TGameSystemAndroid.cpp" />
+    <ClCompile Include="..\..\..\Platform\android\TGCanvasAndroid.cpp" />
+    <ClCompile Include="..\..\..\Platform\android\TGFileAndroid.cpp" />
     <ClCompile Include="..\Src\GWarGigant.cpp" />
     <ClCompile Include="..\Src\GWarMain.cpp" />
     <ClCompile Include="..\Src\Scene\GWarScene_Battle.cpp" />
@@ -139,7 +147,7 @@
     </AntBuild>
     <ClCompile>
       <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include</AdditionalIncludeDirectories>
-      <PreprocessorDefinitions>_ANDROID;DISABLE_IMPORTGL</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_ANDROID;</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>

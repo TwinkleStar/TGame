@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A43A2325-AF31-4AE9-A66A-ADC927CABE86}</ProjectGuid>
+    <RootNamespace>TGameLib_Android</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <Link>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <ClCompile>
+      <PreprocessorDefinitions>_ANDROID</PreprocessorDefinitions>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\png.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngerror.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngmem.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngrio.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngtrans.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwio.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\libpng\pngwtran.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\adler32.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\compress.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\crc32.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\deflate.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\infback.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\inffast.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\inflate.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\inftrees.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\trees.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\uncompr.c" />
+    <ClCompile Include="..\..\..\..\..\common\OpenLib\zlib\zutil.c" />
+    <ClCompile Include="..\..\..\..\..\common\TGameLoop.cpp" />
+    <ClCompile Include="..\..\..\..\..\common\TGCanvas.cpp" />
+    <ClCompile Include="..\..\..\..\..\common\TGGLTexture.cpp" />
+    <ClCompile Include="..\..\..\..\..\common\TGObject.cpp" />
+    <ClCompile Include="..\..\..\..\..\common\TGScene.cpp" />
+    <ClCompile Include="..\..\..\..\..\common\Util\TGameUtil.cpp" />
+    <ClCompile Include="..\..\..\TGameSystemAndroid.cpp" />
+    <ClCompile Include="..\..\..\TGCanvasAndroid.cpp" />
+    <ClCompile Include="..\..\..\TGFileAndroid.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\png.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngconf.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngdebug.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pnginfo.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pnglibconf.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngpriv.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\libpng\pngstruct.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\crc32.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\deflate.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\gzguts.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\inffast.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\inffixed.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\inflate.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\inftrees.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\trees.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\zconf.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\zlib.h" />
+    <ClInclude Include="..\..\..\..\..\common\OpenLib\zlib\zutil.h" />
+    <ClInclude Include="..\..\..\..\..\common\TGameLoop.h" />
+    <ClInclude Include="..\..\..\..\..\common\TGCanvas.h" />
+    <ClInclude Include="..\..\..\..\..\common\TGGLTexture.h" />
+    <ClInclude Include="..\..\..\..\..\common\Util\TGameUtil.h" />
+    <ClInclude Include="..\..\..\TGameSystemAndroid.h" />
+    <ClInclude Include="..\..\..\TGCanvasAndroid.h" />
+    <ClInclude Include="..\..\..\TGFileAndroid.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

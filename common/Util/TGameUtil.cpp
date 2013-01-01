@@ -1,6 +1,6 @@
 
 
-#include "../../../Include/TGame.h"
+#include "../../Include/TGame.h"
 
 #include "TGameUtil.h"
 

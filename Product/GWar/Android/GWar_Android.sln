@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GWar_Android", "GWar_Android.vcxproj", "{B79FA983-BD09-46B1-9D85-F3BE871A1992}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TGameLib_Android", "..\..\..\Platform\android\Project\vs2010\TGameLib_Android\TGameLib_Android.vcxproj", "{A43A2325-AF31-4AE9-A66A-ADC927CABE86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android
@@ -13,7 +15,6 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Debug|Android.ActiveCfg = Debug|Android
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Debug|Android.Build.0 = Debug|Android
-		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Debug|Android.Deploy.0 = Debug|Android
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Debug|Win32.ActiveCfg = Debug|Win32
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Debug|Win32.Build.0 = Debug|Win32
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Release|Android.ActiveCfg = Release|Android
@@ -21,6 +22,12 @@ Global
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Release|Android.Deploy.0 = Release|Android
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Release|Win32.ActiveCfg = Release|Win32
 		{B79FA983-BD09-46B1-9D85-F3BE871A1992}.Release|Win32.Build.0 = Release|Win32
+		{A43A2325-AF31-4AE9-A66A-ADC927CABE86}.Debug|Android.ActiveCfg = Debug|Android
+		{A43A2325-AF31-4AE9-A66A-ADC927CABE86}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A43A2325-AF31-4AE9-A66A-ADC927CABE86}.Debug|Win32.Build.0 = Debug|Win32
+		{A43A2325-AF31-4AE9-A66A-ADC927CABE86}.Release|Android.ActiveCfg = Release|Win32
+		{A43A2325-AF31-4AE9-A66A-ADC927CABE86}.Release|Win32.ActiveCfg = Release|Win32
+		{A43A2325-AF31-4AE9-A66A-ADC927CABE86}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

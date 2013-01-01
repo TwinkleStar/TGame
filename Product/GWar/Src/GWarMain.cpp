@@ -26,7 +26,7 @@ int CGWarMain::OnInit(ITGameSystem* pSys)
 
 			if(pScene)
 			{
-				pScene->LoadLayOut();
+//				pScene->LoadLayOut();
 			}
 
 			pLoop->SetSecne(pScene , 0);
