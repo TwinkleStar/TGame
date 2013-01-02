@@ -10,7 +10,7 @@ public class GWarActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		mTGame	= new TGameAndroid();
+		
 		mGLView = new TGameGLSrufaceView(this);
 		
         setContentView(mGLView);
@@ -34,6 +34,6 @@ public class GWarActivity extends Activity {
     }
 
 	private GLSurfaceView 	mGLView;
-	private TGameAndroid 	mTGame;
+	
 }
 

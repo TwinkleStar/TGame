@@ -41,6 +41,7 @@
     <ClCompile Include="..\Src\GWarMain.cpp" />
     <ClCompile Include="..\Src\Scene\GWarScene_Battle.cpp" />
     <ClCompile Include="..\Src\Scene\GWarScene_MainMenu.cpp" />
+    <ClCompile Include="Android_Main.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{B79FA983-BD09-46B1-9D85-F3BE871A1992}</ProjectGuid>

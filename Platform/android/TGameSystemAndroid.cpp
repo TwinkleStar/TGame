@@ -1,6 +1,12 @@
+#include <jni.h>
 
 
 #include "TGameSystemAndroid.h"
+
+// JNI process
+
+
+
 
 CTGameSystemAndroid::CTGameSystemAndroid()
 {

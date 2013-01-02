@@ -13,6 +13,7 @@ public class TGameGLSrufaceView extends GLSurfaceView {
 	public TGameGLSrufaceView(Context context) {
         super(context);
         mRenderer = new TGameRenderer();
+		
         setRenderer(mRenderer);
     }
 	
@@ -22,13 +23,15 @@ public class TGameGLSrufaceView extends GLSurfaceView {
         }
         return true;
     }
-
-	TGameRenderer mRenderer;
+	
+	private TGameRenderer	mRenderer
+	
 }
 
 class TGameRenderer implements GLSurfaceView.Renderer {
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-      //  nativeInit();
+		mTGame	= new TGameAndroid();
+		mTGame.
     }
 
     public void onSurfaceChanged(GL10 gl, int w, int h) {
@@ -38,10 +41,7 @@ class TGameRenderer implements GLSurfaceView.Renderer {
 
     public void onDrawFrame(GL10 gl) {
       //  nativeRender();
+
     }
 
-   // private static native void nativeInit();
-    //private static native void nativeResize(int w, int h);
-    //private static native void nativeRender();
-    //private static native void nativeDone();
 }
