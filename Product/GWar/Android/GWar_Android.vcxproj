@@ -20,7 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="AndroidApk\AndroidManifest.xml" />
-    <None Include="AndroidApk\build.xml" />
+    <None Include="AndroidApk\build.xml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="AndroidApk\project.properties" />
     <None Include="AndroidApk\src\com\twinkle\gwar\GWarActivity.java" />
     <None Include="AndroidApk\src\com\twinkle\gwar\TGameAndroid.java" />
@@ -99,7 +101,8 @@
     </ClCompile>
     <Link>
       <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalDependencies>TGameLib_Android.so</AdditionalDependencies>
+      <AdditionalDependencies>$(TGAME_ROOT)\lib\TGameLib_Android.a</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(TGAME_ROOT)\lib\</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
