@@ -7,7 +7,7 @@ const char* className = "com/twinkle/gwar";
 
 jint JNI_OnLoad(JavaVM* vm, void* reserved)
 {
-	LOGI("JNI_OnLoad");
+	LOG("JNI_OnLoad");
 
 
 	return 0;
