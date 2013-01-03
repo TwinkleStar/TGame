@@ -1,4 +1,5 @@
 
+#ifdef TGAMELIB_ANDROID
 #ifndef _TGAMESYSTEMANDROID_H__
 #define _TGAMESYSTEMANDROID_H__
 
@@ -6,6 +7,7 @@
 #include "../../include/TGame.h"
 
 #include "../../common/TGameLoop.h"
+#include "../../common/TGCanvas.h"
 
 #include "TGCanvasAndroid.h"
 
@@ -27,6 +29,8 @@ public:
 
 	int Run();
 
+	int OnFrame();
+
 	int	SetState(int nStateID , int nState);
 
 	int GetState(int nStateID);
@@ -34,6 +38,14 @@ public:
 	void Release();
 
 	unsigned int GetTick();
+
+protected:
+	ITGameMain*		m_pMain;
+
+	CTGameLoop*		m_pTGameLoop;
+
+	CTGCanvas*		m_pTGCanvas;
 };
 
 #endif //_TGAMESYSTEMANDROID_H__
+#endif //TGAMELIB_ANDROID

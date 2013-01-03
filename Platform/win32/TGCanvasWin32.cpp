@@ -1,4 +1,4 @@
-
+#ifdef TGAMELIB_WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
@@ -76,24 +76,26 @@ int		CTGCanvasWin32::Init(HWND hWnd, int nScrWidth , int nScrHeight)
 				m_nScrWidth  = nScrWidth;
 				m_nScrHeight = nScrHeight;
 
-				// OpenGL 초기화 //
-				glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
-				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Black Background
-				glEnable(GL_BLEND);
-				glBlendFunc(GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA);
-
-		//		glClearDepth(1.0f);									// Depth Buffer Setup
-			//	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
-			//	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
-			//	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
-		//		glEnable(GL_DEPTH_TEST); 
-				glEnable(GL_DEPTH_TEST); 
-				glDepthFunc(GL_ALWAYS);								// The Type Of Depth Testing To Do
-				
-				glMatrixMode (GL_PROJECTION);
-				glLoadIdentity ();
-				glOrtho (0, m_nWidth, m_nHeight, 0, 0, 1);
-				glMatrixMode (GL_MODELVIEW);
+				TGC_Init(m_nScrWidth , m_nScrHeight);
+// 
+// 				// OpenGL 초기화 //
+// 				glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
+// 				glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Black Background
+// 				glEnable(GL_BLEND);
+// 				glBlendFunc(GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA);
+// 
+// 		//		glClearDepth(1.0f);									// Depth Buffer Setup
+// 			//	glEnable(GL_DEPTH_TEST);							// Enables Depth Testing
+// 			//	glDepthFunc(GL_LEQUAL);								// The Type Of Depth Testing To Do
+// 			//	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
+// 		//		glEnable(GL_DEPTH_TEST); 
+// 				glEnable(GL_DEPTH_TEST); 
+// 				glDepthFunc(GL_ALWAYS);								// The Type Of Depth Testing To Do
+// 				
+// 				glMatrixMode (GL_PROJECTION);
+// 				glLoadIdentity ();
+// 				glOrtho (0, m_nWidth, m_nHeight, 0, 0, 1);
+// 				glMatrixMode (GL_MODELVIEW);
 
 				return TGAME_OK;
 			}
@@ -136,3 +138,5 @@ int		CTGCanvasWin32::Clear()
 
 	return 0;
 }
+
+#endif //TGAMELIB_WIN32

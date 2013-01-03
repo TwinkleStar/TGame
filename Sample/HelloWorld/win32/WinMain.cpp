@@ -1,5 +1,5 @@
 
-
+#ifdef TGAMELIB_WIN32
 #define WIN32_LEAN_AND_MEAN         
 #include <windows.h>
 
@@ -8,13 +8,12 @@
 #endif //_DEBUG
 
 #include "TGame.h"
-
-#include "../HelloWorld.h"
+#include "../src/HelloWorld.h"
 
 #ifdef _DEBUG
-#pragma comment(lib, "TGame_d.lib")
+#pragma comment(lib, "TGame_Win32_d.lib")
 #else
-#pragma comment(lib, "TGame.lib")
+#pragma comment(lib, "TGame_Win32.lib")
 #endif //
 
 int APIENTRY wWinMain(HINSTANCE hInstance,
@@ -27,16 +26,18 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
 
 	if(IS_TGAME_OK(CreateTGameSystem(TGAME_SYSTEM_VER , &pSys)))
 	{
-		CHellowWorld* pMain = new CHellowWorld;
-		
-		if(IS_TGAME_OK(pSys->Initialize(pMain)))
+		CHelloWorld* pMain = new CHelloWorld;
+		pSys->Initialize(pMain);
+
+		ITGameLoop* pLoop = NULL;
+		if(pSys->Query(ID_TGAMELOOP , (void**)&pLoop) == TGAME_OK)
 		{
-			pSys->Run();
+			
 		}
 
-		pSys->Release();
+		pSys->Run();
 
-		delete pMain;
+		pSys->Release();
 	}
 	else
 	{
@@ -47,3 +48,5 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
 #endif //_DEBUG
 	return 0;
 }
+
+#endif //TGAMELIB_WIN32

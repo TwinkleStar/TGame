@@ -20,7 +20,6 @@ CTGameLoop::~CTGameLoop()
 
 int CTGameLoop::SetSecne(CTGScene* pScene , int nEffect)
 {
-
 	if(m_pCurScene == NULL)
 	{
 		m_pCurScene = pScene;
@@ -39,8 +38,7 @@ int CTGameLoop::OnProcess()
 {
 	if(m_pCurScene)
 	{
-	
-		m_pCurScene->OnProcess(m_pSys->GetTick());
+		return m_pCurScene->OnProcess(m_pSys->GetTick());
 	}
 	return 0;
 }

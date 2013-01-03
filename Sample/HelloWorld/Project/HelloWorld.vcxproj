@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -43,13 +51,14 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'" />
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <PrecompiledHeader>
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TGAMELIB_WIN32;WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -75,16 +84,38 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>TGAMELIB_ANDROID</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include\</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>
+      </AdditionalLibraryDirectories>
+      <AdditionalDependencies>$(TGAME_ROOT)\lib\TGame_Android.a</AdditionalDependencies>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+    </Link>
+    <AntBuild>
+      <AntBuildPath>$(ProjectDir)..\Android\Apk\</AntBuildPath>
+    </AntBuild>
+  </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\ChicoChico.cpp" />
-    <ClCompile Include="..\HelloWorld.cpp" />
-    <ClCompile Include="..\MainScene.cpp" />
-    <ClCompile Include="WinMain.cpp" />
+    <ClCompile Include="..\Android\AndroidMain.cpp" />
+    <ClCompile Include="..\src\HelloWorld.cpp" />
+    <ClCompile Include="..\src\MainScene.cpp" />
+    <ClCompile Include="..\win32\WinMain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\ChicoChico.h" />
-    <ClInclude Include="..\HelloWorld.h" />
-    <ClInclude Include="..\MainScene.h" />
+    <None Include="..\Android\Apk\AndroidManifest.xml" />
+    <None Include="..\Android\Apk\build.xml" />
+    <None Include="..\Android\Apk\project.properties" />
+    <None Include="..\Android\Apk\src\com\tgamelib\sample\HelloWorldActivity.java" />
+    <None Include="..\Android\Apk\src\com\tgamelib\sample\TGameAndroid.java" />
+    <None Include="..\Android\Apk\src\com\tgamelib\sample\TGameGLSrufaceView.java" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\HelloWorld.h" />
+    <ClInclude Include="..\src\MainScene.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

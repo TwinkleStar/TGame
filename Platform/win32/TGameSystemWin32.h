@@ -1,4 +1,4 @@
-
+#ifdef TGAMELIB_WIN32
 #ifndef _TGAMESYSTEMWIN32_H__
 #define _TGAMESYSTEMWIN32_H__
 
@@ -25,6 +25,8 @@ public:
 	int LoadTGGLTexture(const char* szFile ,ITGGLTexture** ppTexture);
 
 	int Run();
+
+	int OnFrame();
 
 	int	SetState(int nStateID , int nState);
 
@@ -65,3 +67,4 @@ protected:
 
 
 #endif //_TGAMESYSTEMWIN32_H__
+#endif //TGAMELIB_WIN32

@@ -1,5 +1,4 @@
-
-
+#ifdef TGAMELIB_WIN32
 #define WIN32_LEAN_AND_MEAN         
 #include <windows.h>
 
@@ -50,3 +49,5 @@ int APIENTRY wWinMain(HINSTANCE hInstance,
 #endif //_DEBUG
 	return 0;
 }
+
+#endif //TGAMELIB_WIN32

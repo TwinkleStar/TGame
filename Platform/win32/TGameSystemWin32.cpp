@@ -1,4 +1,4 @@
-
+#ifdef TGAMELIB_WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
@@ -24,23 +24,16 @@ CTGameSystemWin32::CTGameSystemWin32()
 	
 	m_hWnd			= NULL;
 
-
-	m_nWidth		= 320;
+	m_nWidth		= 800;
 	m_nHeight		= 480;
-
-
-// 	m_nWidth		= 480;
-// 	m_nHeight		= 640;
 
 	m_llLast		= 0;
 	
-
 	LARGE_INTEGER nFreq;
 	QueryPerformanceFrequency(&nFreq);
 
 	m_llSecTick = nFreq.QuadPart;
 	m_llFrameInterval = (LONGLONG)((1.0/60.0) * nFreq.QuadPart);
-
 }
 
 
@@ -161,6 +154,12 @@ int CTGameSystemWin32::Run()
 			}
 		}
 	}
+	return 0;
+}
+
+int CTGameSystemWin32::OnFrame()
+{
+
 	return 0;
 }
 
@@ -374,3 +373,6 @@ LRESULT CALLBACK WndProc(HWND hWnd , UINT msg , WPARAM wParam , LPARAM lParam)
 	return DefWindowProc(hWnd , msg , wParam , lParam);
 }
 
+
+
+#endif //TGAMELIB_WIN32

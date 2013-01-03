@@ -7,9 +7,6 @@
     <Filter Include="Include">
       <UniqueIdentifier>{e5f167fc-0681-4a81-80c8-0de4a6f1bda5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="win32">
-      <UniqueIdentifier>{4625d5e1-6ca0-4687-9eda-b43ba00b61ec}</UniqueIdentifier>
-    </Filter>
     <Filter Include="common">
       <UniqueIdentifier>{819efd65-7ddb-470b-9b60-3ba8db25fcc5}</UniqueIdentifier>
     </Filter>
@@ -24,6 +21,15 @@
     </Filter>
     <Filter Include="common\Util">
       <UniqueIdentifier>{904b2746-8326-44fe-9390-ad681da8a21b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{d7494a9e-ba8a-4978-9372-b9251076985c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\win32">
+      <UniqueIdentifier>{4625d5e1-6ca0-4687-9eda-b43ba00b61ec}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\Android">
+      <UniqueIdentifier>{541c0136-9386-425b-99b8-d43ed5e4b59d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -55,7 +61,7 @@
       <Filter>Include</Filter>
     </ClInclude>
     <ClInclude Include="..\..\TGameSystemWin32.h">
-      <Filter>win32</Filter>
+      <Filter>Platforms\win32</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\common\TGameLoop.h">
       <Filter>common</Filter>
@@ -64,16 +70,13 @@
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\TGCanvasWin32.h">
-      <Filter>win32</Filter>
+      <Filter>Platforms\win32</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\common\TGGLTexture.h">
       <Filter>common</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\Include\ITGFile.h">
       <Filter>Include</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\TGFileWin32.h">
-      <Filter>win32</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\..\common\OpenLib\libpng\png.h">
       <Filter>OpenLib\libpng</Filter>
@@ -138,10 +141,22 @@
     <ClInclude Include="..\..\..\..\common\Util\TGameTextFactory.h">
       <Filter>common\Util</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\TGFileWin32.h">
+      <Filter>Platforms\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\android\TGameSystemAndroid.h">
+      <Filter>Platforms\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\android\TGCanvasAndroid.h">
+      <Filter>Platforms\Android</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\android\TGFileAndroid.h">
+      <Filter>Platforms\Android</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\TGameSystemWin32.cpp">
-      <Filter>win32</Filter>
+      <Filter>Platforms\win32</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\common\TGameLoop.cpp">
       <Filter>common</Filter>
@@ -156,13 +171,13 @@
       <Filter>common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\TGCanvasWin32.cpp">
-      <Filter>win32</Filter>
+      <Filter>Platforms\win32</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\common\TGGLTexture.cpp">
       <Filter>common</Filter>
     </ClCompile>
     <ClCompile Include="..\..\TGFileWin32.cpp">
-      <Filter>win32</Filter>
+      <Filter>Platforms\win32</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\..\common\OpenLib\libpng\png.c">
       <Filter>OpenLib\libpng</Filter>
@@ -259,6 +274,18 @@
     </ClCompile>
     <ClCompile Include="..\..\..\..\common\Util\TGameTextFactory.cpp">
       <Filter>common\Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\android\TGameSystemAndroid.cpp">
+      <Filter>Platforms\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\android\TGCanvasAndroid.cpp">
+      <Filter>Platforms\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\android\TGFileAndroid.cpp">
+      <Filter>Platforms\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\android\TGameJNI.cpp">
+      <Filter>Platforms\Android</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

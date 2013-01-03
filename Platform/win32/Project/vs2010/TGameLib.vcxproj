@@ -1,9 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Android">
+      <Configuration>Debug</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
       <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Android">
+      <Configuration>Release</Configuration>
+      <Platform>Android</Platform>
     </ProjectConfiguration>
     <ProjectConfiguration Include="Release|Win32">
       <Configuration>Release</Configuration>
@@ -27,6 +35,9 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>Unicode</CharacterSet>
   </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+  </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
@@ -41,13 +52,19 @@
     <OutDir>$(TGAME_ROOT)\Lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <TargetName>TGame_d</TargetName>
+    <TargetName>TGame_Win32_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <OutDir>$(TGAME_ROOT)\Lib\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <TargetName>TGame</TargetName>
+    <TargetName>TGame_Win32</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <OutDir>$(TGAME_ROOT)\lib\</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <TargetName>TGame_Android</TargetName>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -55,8 +72,8 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>../../../../common/openlib/zlib;./common/openlib/libpng;</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>TGAMELIB_WIN32;WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -71,7 +88,8 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>TGAMELIB_WIN32;WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -79,6 +97,13 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
+    <ClCompile>
+      <PreprocessorDefinitions>TGAMELIB_ANDROID</PreprocessorDefinitions>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include;$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng;</AdditionalIncludeDirectories>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -118,6 +143,9 @@
     <ClInclude Include="..\..\..\..\Include\TGLayer.h" />
     <ClInclude Include="..\..\..\..\Include\TGObject.h" />
     <ClInclude Include="..\..\..\..\Include\TGScene.h" />
+    <ClInclude Include="..\..\..\android\TGameSystemAndroid.h" />
+    <ClInclude Include="..\..\..\android\TGCanvasAndroid.h" />
+    <ClInclude Include="..\..\..\android\TGFileAndroid.h" />
     <ClInclude Include="..\..\TGameSystemWin32.h" />
     <ClInclude Include="..\..\TGCanvasWin32.h" />
     <ClInclude Include="..\..\TGFileWin32.h" />
@@ -160,6 +188,10 @@
     <ClCompile Include="..\..\..\..\common\TGScene.cpp" />
     <ClCompile Include="..\..\..\..\common\Util\TGameTextFactory.cpp" />
     <ClCompile Include="..\..\..\..\common\Util\TGameUtil.cpp" />
+    <ClCompile Include="..\..\..\android\TGameJNI.cpp" />
+    <ClCompile Include="..\..\..\android\TGameSystemAndroid.cpp" />
+    <ClCompile Include="..\..\..\android\TGCanvasAndroid.cpp" />
+    <ClCompile Include="..\..\..\android\TGFileAndroid.cpp" />
     <ClCompile Include="..\..\TGameSystemWin32.cpp" />
     <ClCompile Include="..\..\TGCanvasWin32.cpp" />
     <ClCompile Include="..\..\TGFileWin32.cpp" />

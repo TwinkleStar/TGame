@@ -1,4 +1,4 @@
-
+#ifdef TGAMELIB_WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
@@ -90,3 +90,5 @@ void CTGFileWin32::Release()
 	Close();
 	delete this;
 }
+
+#endif //TGAMELIB_WIN32

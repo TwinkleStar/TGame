@@ -1,4 +1,4 @@
-
+#ifdef TGAMELIB_WIN32
 #ifndef _TGCANVASWIN32_H__
 #define _TGCANVASWIN32_H__
 
@@ -27,3 +27,4 @@ protected:
 
 
 #endif //_TGCANVASWIN32_H__
+#endif //TGAMELIB_WIN32

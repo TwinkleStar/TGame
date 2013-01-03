@@ -10,6 +10,8 @@ public:
 	CTGCanvas();
 	virtual ~CTGCanvas();
 
+	int TGC_Init(int nWidth , int nHeight);
+
 	int TGC_Begin();
 
 	int TGC_Clear(TGCOLOR cl);

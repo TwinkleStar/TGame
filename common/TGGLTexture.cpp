@@ -1,17 +1,16 @@
 
-#ifdef _WIN32
+#ifdef TGAMELIB_WIN32
 #define  WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 
 #include <gl/GL.h>
 #include <gl/GLU.h>
-#endif //_WIN32
+#endif //TGAMELIB_WIN32
 
-#ifdef _ANDROID
+#ifdef TGAMELIB_ANDROID
 #include <stdlib.h>
 #include <GLES/gl.h>
-
-#endif //
+#endif //TGAMELIB_ANDROID
 
 #include "../Include/TGame.h"
 
@@ -40,7 +39,6 @@ int		CTGGLTexture::Load(ITGFile* pFile)
 {
 	if(pFile)
 	{
-		
 		char sig[8];
 		int nRead = 0;
 		if(IS_TGAME_OK(pFile->Read(sig , 8 , &nRead)))

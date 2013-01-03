@@ -30,6 +30,8 @@ public:
 
 	virtual int Run() = 0;
 
+	virtual	int OnFrame() = 0;
+
 	virtual	int	SetState(int nStateID , int nState) = 0;
 
 	virtual	int GetState(int nStateID) = 0;

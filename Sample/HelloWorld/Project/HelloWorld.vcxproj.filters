@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{ed04acb3-ac6c-4277-ac0c-e97133e2cbf7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms">
+      <UniqueIdentifier>{8b9edbfc-c99f-4e37-a6b1-94e09b04f4d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\win32">
+      <UniqueIdentifier>{059fd4f0-36c7-4fd2-b789-27903066a423}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\Android">
+      <UniqueIdentifier>{49b3ca8a-d6bd-43a1-bc3d-ce3f29963b7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\Android\Apk">
+      <UniqueIdentifier>{61890cd3-d27f-48d4-bc2d-da9f3c783456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Platforms\Android\Apk\Java">
+      <UniqueIdentifier>{676e9c3c-6df6-42a5-ac8c-a24d4dcc5c78}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Android\AndroidMain.cpp">
+      <Filter>Platforms\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\win32\WinMain.cpp">
+      <Filter>Platforms\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\HelloWorld.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\MainScene.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Android\Apk\AndroidManifest.xml">
+      <Filter>Platforms\Android\Apk</Filter>
+    </None>
+    <None Include="..\Android\Apk\build.xml">
+      <Filter>Platforms\Android\Apk</Filter>
+    </None>
+    <None Include="..\Android\Apk\project.properties">
+      <Filter>Platforms\Android\Apk</Filter>
+    </None>
+    <None Include="..\Android\Apk\src\com\tgamelib\sample\HelloWorldActivity.java">
+      <Filter>Platforms\Android\Apk\Java</Filter>
+    </None>
+    <None Include="..\Android\Apk\src\com\tgamelib\sample\TGameAndroid.java">
+      <Filter>Platforms\Android\Apk\Java</Filter>
+    </None>
+    <None Include="..\Android\Apk\src\com\tgamelib\sample\TGameGLSrufaceView.java">
+      <Filter>Platforms\Android\Apk\Java</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\HelloWorld.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\MainScene.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

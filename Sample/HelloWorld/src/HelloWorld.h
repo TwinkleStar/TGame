@@ -4,11 +4,11 @@
 
 #include "TGame.h"
 
-class CHellowWorld : public ITGameMain
+class CHelloWorld : public ITGameMain
 {
 public:
-	CHellowWorld();
-	~CHellowWorld();
+	CHelloWorld();
+	~CHelloWorld();
 
 	int OnInit(ITGameSystem* pSys);
 	int OnPause();
@@ -16,10 +16,8 @@ public:
 	int OnExit();
 
 protected:
-	ITGameSystem*		m_pSys;
+	ITGameSystem* m_pSys;
 };
-
-
 
 
 #endif //_HELLOWORLD_H__

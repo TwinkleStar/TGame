@@ -2,17 +2,17 @@
 
 #include "../Include/TGame.h"
 
-#ifdef _WIN32
+#ifdef TGAMELIB_WIN32
 #define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <gl/GL.h>
 #include <gl/GLU.h>
-#endif //_WIN32
+#endif //TGAMELIB_WIN32
 
-#ifdef  _ANDROID
+#ifdef  TGAMELIB_ANDROID
 #include <stdlib.h>
 #include <GLES/gl.h>
-#endif //_ANDROID
+#endif //TGAMELIB_ANDROID
 
 
 
@@ -34,6 +34,31 @@ CTGCanvas::~CTGCanvas()
 
 }
 
+
+int CTGCanvas::TGC_Init(int nWidth , int nHeight)
+{
+	glViewport(0,0,nWidth , nHeight);
+	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Black Background
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA , GL_ONE_MINUS_SRC_ALPHA);
+
+	glEnable(GL_DEPTH_TEST); 
+	glDepthFunc(GL_ALWAYS);								// The Type Of Depth Testing To Do
+
+	glMatrixMode (GL_PROJECTION);
+	glLoadIdentity ();
+#ifdef TGAMELIB_ANDROID
+	glOrthof((float)0, (float)nWidth, (float)nHeight, (float)0.0f, (float)1.0f, (float)-1.0f);
+#endif //TGAMELIB_ANDROID
+#ifdef TGAMELIB_WIN32
+	glOrtho (0, nWidth, nHeight, 0, 0, 1);
+#endif //TGAMELIB_WIN32
+	glMatrixMode (GL_MODELVIEW);
+//	
+	return 0;
+}
+
 int CTGCanvas::TGC_Begin()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);   
@@ -50,20 +75,39 @@ int CTGCanvas::TGC_Clear(TGCOLOR cl)
 
 int CTGCanvas::TGC_DrawLine(TGCOLOR cl , float fStroke, float fx1 , float fy1 , float fx2 , float fy2)
 {
-	return 0;
+	glColor4f (TGCOLOR_TO_4F(cl));
+	glEnableClientState(GL_VERTEX_ARRAY);       
+	GLfloat squareVertices[6] = {
+		fx1 , fy1, 0.0f,
+		fx2 , fy2 , 0.0f
+	};
+
+	glVertexPointer(3, GL_FLOAT, 0, squareVertices);
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glDrawArrays(GL_LINE_STRIP, 0, 2);
+	glDisableClientState(GL_VERTEX_ARRAY);
+
+	return TGAME_OK;
 }
 
 int CTGCanvas::TGC_DrawRect(TGCOLOR cl , float fStroke,  TGRect* pTGRect)
 {
 	if(pTGRect)
 	{
-// 		glColor4f (TGCOLOR_TO_4F(cl));
-// 		glBegin(GL_POLYGON);
-// 		glVertex2f (pTGRect->left  , pTGRect->top);
-// 		glVertex2f (pTGRect->right , pTGRect->top);
-// 		glVertex2f (pTGRect->right , pTGRect->bottom);
-// 		glVertex2f (pTGRect->left  , pTGRect->bottom);
-// 		glEnd();
+		glColor4f (TGCOLOR_TO_4F(cl));
+		glEnableClientState(GL_VERTEX_ARRAY);       
+		GLfloat squareVertices[15] = {
+			pTGRect->left  , pTGRect->top , 0.0f,
+			pTGRect->right , pTGRect->top , 0.0f,
+			pTGRect->right , pTGRect->bottom, 0.0f,
+			pTGRect->left  , pTGRect->bottom, 0.0f,
+			pTGRect->left  , pTGRect->top , 0.0f
+		};
+
+		glVertexPointer(3, GL_FLOAT, 0, squareVertices);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glDrawArrays(GL_LINE_STRIP, 0, 5);
+		glDisableClientState(GL_VERTEX_ARRAY);
 
 		return TGAME_OK;
 	}
@@ -74,16 +118,19 @@ int CTGCanvas::TGC_FillRect(TGCOLOR cl , float fStroke,  TGRect* pTGRect)
 {
 	if(pTGRect)
 	{
-// 		glEnable( GL_DEPTH_TEST );
-// 		glDepthFunc(GL_ALWAYS);
-// 
-// 		glColor4f (TGCOLOR_TO_4F(cl));
-// 		glBegin(GL_POLYGON);
-// 		glVertex2f (pTGRect->left  , pTGRect->top);
-// 		glVertex2f (pTGRect->right , pTGRect->top);
-// 		glVertex2f (pTGRect->right , pTGRect->bottom);
-// 		glVertex2f (pTGRect->left  , pTGRect->bottom);
-// 		glEnd();
+		glColor4f (TGCOLOR_TO_4F(cl));
+		glEnableClientState(GL_VERTEX_ARRAY);       
+		GLfloat squareVertices[12] = {
+			pTGRect->left  , pTGRect->top , 0.0f,
+			pTGRect->right , pTGRect->top , 0.0f,
+			pTGRect->right , pTGRect->bottom, 0.0f,
+			pTGRect->left  , pTGRect->bottom, 0.0f
+		};
+
+		glVertexPointer(3, GL_FLOAT, 0, squareVertices);
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
+		glDisableClientState(GL_VERTEX_ARRAY);
 
 		return TGAME_OK;
 	}
@@ -129,13 +176,6 @@ int CTGCanvas::TGC_DrawImage(ITGGLTexture* pTex , float x , float y)
 			glDrawArrays(GL_TRIANGLE_FAN, 0, 4);
 			glDisableClientState(GL_TEXTURE_COORD_ARRAY);   
 
-// 			glBegin( GL_QUADS );
-// 			glTexCoord2f(0.0f,0.0f); glVertex2f(x ,y);
-// 			glTexCoord2f(1.0f,0.0f); glVertex2f(x + (sz.cx >> 2),y);
-// 			glTexCoord2f(1.0f,1.0f); glVertex2f(x + (sz.cx >> 2),y + (sz.cy >> 2));
-// 			glTexCoord2f(0.0f,1.0f); glVertex2f(x,y + (sz.cy >> 2));
-// 			glEnd();
-// 			glDisable(GL_TEXTURE_2D);
 			return TGAME_OK;
 		}
 	}
