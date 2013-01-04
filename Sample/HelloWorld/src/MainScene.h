@@ -2,6 +2,8 @@
 #ifndef _MAINSCENE_H__
 #define _MAINSCENE_H__
 
+#include "TGame.h"
+
 class CTGScene;
 class ITGameCanvas;
 class CMainScene : public CTGScene
@@ -16,7 +18,8 @@ public:
 	int End();
 
 protected:
-	ITGameSystem* m_pSys;
+	ITGameSystem*	m_pSys;
+	ITGGLTexture*	m_pTex;
 };
 
 

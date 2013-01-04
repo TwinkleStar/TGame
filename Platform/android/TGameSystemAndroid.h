@@ -4,12 +4,16 @@
 #define _TGAMESYSTEMANDROID_H__
 
 
-#include "../../include/TGame.h"
+#include "TGame.h"
 
 #include "../../common/TGameLoop.h"
 #include "../../common/TGCanvas.h"
 
 #include "TGCanvasAndroid.h"
+#include "Android/TGameJNI.h"
+
+#include <jni.h>
+
 
 class CTGameSystemAndroid : public ITGameSystem
 {
@@ -39,12 +43,18 @@ public:
 
 	unsigned int GetTick();
 
+	int	SetAssetManager(AAssetManager*	 pAssetMgr);
+
 protected:
 	ITGameMain*		m_pMain;
 
 	CTGameLoop*		m_pTGameLoop;
 
 	CTGCanvas*		m_pTGCanvas;
+
+	JavaVM*			m_pJavaVM;
+
+	AAssetManager*	m_pAssetMgr;
 };
 
 #endif //_TGAMESYSTEMANDROID_H__

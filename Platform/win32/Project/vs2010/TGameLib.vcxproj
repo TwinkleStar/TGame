@@ -101,7 +101,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
     <ClCompile>
       <PreprocessorDefinitions>TGAMELIB_ANDROID</PreprocessorDefinitions>
-      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lGLESv1_CM -landroid %(AdditionalOptions)</AdditionalOptions>
       <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include;$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng;</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>

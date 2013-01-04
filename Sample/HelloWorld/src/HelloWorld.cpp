@@ -7,6 +7,7 @@
 CHelloWorld::CHelloWorld()
 {
 	m_pSys = NULL;
+	
 }
 CHelloWorld::~CHelloWorld()
 {

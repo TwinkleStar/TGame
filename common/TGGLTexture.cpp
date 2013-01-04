@@ -39,7 +39,7 @@ int		CTGGLTexture::Load(ITGFile* pFile)
 {
 	if(pFile)
 	{
-		char sig[8];
+		char sig[8] = {0,};
 		int nRead = 0;
 		if(IS_TGAME_OK(pFile->Read(sig , 8 , &nRead)))
 		{

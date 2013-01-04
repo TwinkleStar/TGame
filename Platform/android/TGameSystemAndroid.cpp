@@ -3,15 +3,24 @@
 
 #include <sys/time.h>
 #include <jni.h>
-#include "TGameSystemAndroid.h"
+#include <android/asset_manager.h>
 
+#include "TGameSystemAndroid.h"
+#include "TGFileAndroid.h"
+#include "../../common/TGGLTexture.h"
 // JNI process
+
+extern TGAME_CONTEXT*	gTGameContext;
 
 CTGameSystemAndroid::CTGameSystemAndroid()
 {
 	m_pMain			= NULL;
 	m_pTGameLoop	= NULL;
 	m_pTGCanvas		= NULL;
+
+	m_pAssetMgr		= NULL;
+
+
 }
 
 CTGameSystemAndroid::~CTGameSystemAndroid()
@@ -29,6 +38,7 @@ int CTGameSystemAndroid::Initialize(ITGameMain* pMain)
 		m_pTGCanvas	 = new CTGCanvas;
 		m_pTGCanvas->TGC_Init(800, 480);
 
+		
 		return TGAME_OK;
 	}
 	return 0;
@@ -69,7 +79,7 @@ int CTGameSystemAndroid::Create(int nID , void** ppObj)
 		*ppObj = NULL;
 		if(nID == ID_TGAMEFILE)
 		{
-		//	*ppObj = reinterpret_cast<void*>(new CTGFileAndroid);
+			*ppObj = reinterpret_cast<void*>(new CTGFileAndroid(m_pAssetMgr));
 		}
 		if(*ppObj)
 		{
@@ -83,7 +93,25 @@ int CTGameSystemAndroid::Create(int nID , void** ppObj)
 
 int CTGameSystemAndroid::LoadTGGLTexture(const char* szFile , ITGGLTexture** ppTexture)
 {
-	return 0;
+	if(szFile && ppTexture)
+	{
+		CTGFileAndroid* pFile = new CTGFileAndroid(m_pAssetMgr);
+
+		if(IS_TGAME_OK(pFile->Open(szFile , TGFILE_READ)))
+		{
+			CTGGLTexture* pTex = new CTGGLTexture;
+			if(IS_TGAME_OK(pTex->Load(pFile)))
+			{
+				*ppTexture = reinterpret_cast<ITGGLTexture*>(pTex);
+				return TGAME_OK;
+			}
+			pFile->Release();
+
+
+		}
+		return TGAME_FAIL;
+	}
+	return TGAME_INVALID_PARAM;
 }
 
 int CTGameSystemAndroid::Run()
@@ -130,6 +158,15 @@ unsigned int CTGameSystemAndroid::GetTick()
 	return (unsigned int)(now.tv_sec*1000 + now.tv_usec/1000);
 }
 
+int	CTGameSystemAndroid::SetAssetManager(AAssetManager*	 pAssetMgr)
+{
+	if(pAssetMgr)
+	{
+		m_pAssetMgr = pAssetMgr;
+		return 1;
+	}
+	return 0;
+}
 int		CreateTGameSystem(int nVer , ITGameSystem** ppSystem)
 {
 	if(nVer > 0)

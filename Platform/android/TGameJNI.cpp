@@ -1,32 +1,39 @@
 #ifdef TGAMELIB_ANDROID
 
 #include <stdlib.h>
+#include <android/asset_manager_jni.h>
+
 #include "TGame.h"
 #include "Android/TGameJNI.h"
 
+#include "TGameSystemAndroid.h"
 
 typedef union {
 	JNIEnv* env;
 	void* venv;
 } UnionJNIEnvToVoid;
 
-typedef struct _TGAME_CONTEXT
-{
-	ITGameMain*		pMain;
-	ITGameSystem*	pSys;
-}TGAME_CONTEXT;
 
 
 TGAME_CONTEXT*	gTGameContext = NULL;
 
 
-static jint InitTGame(JNIEnv *env, jobject thiz ,jint nVer) 
+static jint InitTGame(JNIEnv *env, jobject thiz ,jint nVer , jobject assetManager) 
 {
 	if(nVer == 0)
 	{
 		if(gTGameContext && gTGameContext->pMain && gTGameContext->pSys)
 		{
+			AAssetManager* pAssetMgr =  AAssetManager_fromJava(env, assetManager);
+
+			CTGameSystemAndroid* pSysAndroid = static_cast<CTGameSystemAndroid*>(gTGameContext->pSys);
+			if(pSysAndroid)
+			{
+				pSysAndroid->SetAssetManager(pAssetMgr);
+			}
+
 			gTGameContext->pMain->OnInit(gTGameContext->pSys);
+			
 			return 1;
 		}
 	}
@@ -43,9 +50,13 @@ static jint DoRender(JNIEnv *env, jobject thiz)
 	return 0;
 }
 
+/*
+B=byte C=char D=double F=float I=int
+J=long S=short V=void Z=boolean
+*/
 
 static JNINativeMethod methods[] = {
-	{"InitTGame", "(I)I", (void*)InitTGame },
+	{"InitTGame", "(Ljava/lang/Object;I)I", (void*)InitTGame },
 	{"DoRender", "()I", (void*)DoRender },
 };
 
@@ -73,7 +84,7 @@ int		TGameOnLoad(JavaVM* vm, const char* szClassName , ITGameMain* pTGameMain)
 						
 						gTGameContext = new TGAME_CONTEXT;
 						memset(gTGameContext , 0x00 , sizeof(TGAME_CONTEXT));
-
+			
 						ITGameSystem* pSys = NULL;
 						if(CreateTGameSystem(TGAME_SYSTEM_VER , &pSys) == TGAME_OK)
 						{
@@ -84,10 +95,7 @@ int		TGameOnLoad(JavaVM* vm, const char* szClassName , ITGameMain* pTGameMain)
 								
 							}
 						}
-
-						
 					}
-
 				}		
 			}
 		}

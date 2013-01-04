@@ -47,6 +47,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(TGAME_ROOT)\Sample\bin\$(ProjectName)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
@@ -93,7 +94,7 @@
       <AdditionalLibraryDirectories>
       </AdditionalLibraryDirectories>
       <AdditionalDependencies>$(TGAME_ROOT)\lib\TGame_Android.a</AdditionalDependencies>
-      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-lGLESv1_CM -landroid %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <AntBuild>
       <AntBuildPath>$(ProjectDir)..\Android\Apk\</AntBuildPath>

@@ -34,6 +34,8 @@ CTGameSystemWin32::CTGameSystemWin32()
 
 	m_llSecTick = nFreq.QuadPart;
 	m_llFrameInterval = (LONGLONG)((1.0/60.0) * nFreq.QuadPart);
+
+	memset(m_szResDir , 0x00 , sizeof(m_szResDir));
 }
 
 
@@ -53,7 +55,6 @@ int CTGameSystemWin32::Initialize(ITGameMain* pMain)
 		m_pTGCanvas	 = new CTGCanvasWin32;
 
 		
-
 		return TGAME_OK;
 	}
 	return TGAME_INVALID_PARAM;
@@ -111,7 +112,10 @@ int CTGameSystemWin32::LoadTGGLTexture(const char* szFile ,ITGGLTexture** ppText
 	{
 		CTGFileWin32* pFile = new CTGFileWin32;
 
-		if(IS_TGAME_OK(pFile->Open(szFile , TGFILE_READ)))
+		char szResPath[MAX_PATH] = {0,};
+		sprintf_s(szResPath , "res\\%s" , szFile);
+
+		if(IS_TGAME_OK(pFile->Open(szResPath , TGFILE_READ)))
 		{
 			CTGGLTexture* pTex = new CTGGLTexture;
 			if(IS_TGAME_OK(pTex->Load(pFile)))
@@ -159,7 +163,10 @@ int CTGameSystemWin32::Run()
 
 int CTGameSystemWin32::OnFrame()
 {
-
+	if(IS_TGAME_OK(m_pTGameLoop->OnProcess()))
+	{
+		m_pTGameLoop->DoRender(m_pTGCanvas);
+	}
 	return 0;
 }
 
@@ -281,13 +288,9 @@ int CTGameSystemWin32::MainLoop()
 	{
 		LONGLONG llDuration = cur.QuadPart - m_llLast;
 		m_llLast = cur.QuadPart;
-
-		if(IS_TGAME_OK(m_pTGameLoop->OnProcess()))
-		{
-			m_pTGameLoop->DoRender(m_pTGCanvas);
-		}
-
 		
+		OnFrame();
+				
 		int nFrame = (int)(m_llSecTick / llDuration);
 		WCHAR szFrame[32] = {0,};
 		swprintf_s(szFrame , L"fps = %d" , nFrame);

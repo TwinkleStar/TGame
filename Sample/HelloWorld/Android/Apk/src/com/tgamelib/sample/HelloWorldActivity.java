@@ -4,6 +4,7 @@ import android.opengl.GLSurfaceView;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import android.content.res.AssetManager;
 
 public class HelloWorldActivity extends Activity {
 
@@ -11,8 +12,12 @@ public class HelloWorldActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		mGLView = new TGameGLSrufaceView(this);
+		assetManager = getAssets();
+
+		mGLView = new TGameGLSrufaceView(this , assetManager);
 		
+		
+
 	    setContentView(mGLView);
 	}
 
@@ -34,6 +39,6 @@ public class HelloWorldActivity extends Activity {
     }
 
 	private GLSurfaceView 	mGLView;
-	
+	static AssetManager assetManager;
 }
 

@@ -7,13 +7,14 @@ import android.opengl.GLSurfaceView;
 import android.content.Context;
 import android.view.MotionEvent;
 
-
+import android.content.res.AssetManager;
 
 public class TGameGLSrufaceView extends GLSurfaceView {
-	public TGameGLSrufaceView(Context context) {
+	public TGameGLSrufaceView(Context context , AssetManager assetMgr) {
         super(context);
-        mRenderer = new TGameRenderer();
+        mRenderer	= new TGameRenderer(assetMgr);
 		
+
         setRenderer(mRenderer);
     }
 	
@@ -29,22 +30,22 @@ public class TGameGLSrufaceView extends GLSurfaceView {
 }
 
 class TGameRenderer implements GLSurfaceView.Renderer {
+	public TGameRenderer(AssetManager assetMgr){
+		mTGame		= new TGameAndroid();
+		
+		mTGame.InitTGame(0 , assetMgr);
+	}
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-		mTGame	= new TGameAndroid();
-		mTGame.InitTGame(0);
+		
     }
 
     public void onSurfaceChanged(GL10 gl, int w, int h) {
-        //gl.glViewport(0, 0, w, h);
-       // nativeResize(w, h);
+     
     }
 
     public void onDrawFrame(GL10 gl) {
-      
-	  mTGame.DoRender();
-
+		mTGame.DoRender();
     }
 
-	private TGameAndroid mTGame;
-
+	private TGameAndroid	mTGame;
 }

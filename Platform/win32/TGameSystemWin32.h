@@ -8,6 +8,7 @@
 
 #include "TGCanvasWin32.h"
 
+
 class CTGameSystemWin32 : public ITGameSystem
 {
 public:
@@ -54,6 +55,8 @@ protected:
 	LONGLONG		m_llSecTick;
 	LONGLONG		m_llFrameInterval;
 	LONGLONG		m_llLast;
+
+	char			m_szResDir[MAX_PATH];
 
 	int	 CreateGLWindow();
 
