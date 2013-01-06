@@ -9,6 +9,7 @@ import android.content.Context;
 import android.view.MotionEvent;
 
 import android.content.res.AssetManager;
+import android.graphics.PixelFormat;
 
 @SuppressLint("ViewConstructor")
 public class TGameGLSrufaceView extends GLSurfaceView {
@@ -17,6 +18,7 @@ public class TGameGLSrufaceView extends GLSurfaceView {
         mRenderer	= new TGameRenderer(context);
         setRenderer(mRenderer);
         
+  //   getHolder().setFormat(PixelFormat.TRANSLUCENT);
         
     }
 	
@@ -52,6 +54,7 @@ public class TGameGLSrufaceView extends GLSurfaceView {
 	
 	    public void onDrawFrame(GL10 gl) {
 	    	
+	    	gl.glClearColor(1.0f, 1.0f, 0, 0.5f);
 			DoRender();
 	    }
 	

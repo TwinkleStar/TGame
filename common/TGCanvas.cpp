@@ -15,7 +15,7 @@
 #endif //TGAMELIB_ANDROID
 
 //#pragma comment(lib, "ftgl_static_d.lib")
-#include  <FTGL/ftgl.h>
+//#include  <FTGL/ftgl.h>
 
 
 
@@ -32,7 +32,7 @@ CTGCanvas::CTGCanvas()
 	m_nHeight	= 0;
 
 
-	m_pFTGLfont = new FTGLPixmapFont("C:/Android/NanumGothicLight.ttf");
+//	m_pFTGLfont = new FTGLPixmapFont("C:/Android/NanumGothicLight.ttf");
 
 
 }
@@ -262,16 +262,16 @@ int CTGCanvas::TGC_DrawImage(ITGGLTexture* pTex , TGRect* pRtDst , TGRect* pRtSr
 
 int CTGCanvas::TGC_DrawText(char* szText , TGCOLOR cl , TGRect* pRect , int nFormat)
 {
-	if(m_pFTGLfont)
-	{
-		m_pFTGLfont->FaceSize(32);
-		
-		m_pFTGLfont->Render("Hello World!");
-		
+// 	if(m_pFTGLfont)
+// 	{
+// 		m_pFTGLfont->FaceSize(32);
+// 		
+// 		m_pFTGLfont->Render("Hello World!");
+// 		
 //		ftglRenderFont(m_pFTGLfont, "Hello World!", FTGL_RENDER_ALL);
 
-		return TGAME_OK;
-	}
+// 		return TGAME_OK;
+// 	}
 	return TGAME_NOT_SUPPORT;
 }
 

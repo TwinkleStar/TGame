@@ -138,7 +138,7 @@ int CTGameSystemAndroid::OnFrame()
 	{
 		if(m_pTGameLoop->OnProcess() == TGAME_OK)
 		{
-			m_pTGCanvas->TGC_Init(480, 800);
+			m_pTGCanvas->TGC_Init(800, 480);
 	//		m_pTGCanvas->TGC_Begin();
 			
 			m_pTGameLoop->DoRender(m_pTGCanvas);

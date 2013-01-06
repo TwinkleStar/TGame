@@ -1,0 +1,4 @@
+화면 회전 고정 
+	AndroidManifest.xml에서 모든 Activity에 다음을 
+	android:screenOrientation="portrait"       //--- 세로 화면 고정
+	android:screenOrientation="landscape"      //--- 가로화면 고정

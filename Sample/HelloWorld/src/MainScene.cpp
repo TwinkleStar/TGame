@@ -36,19 +36,21 @@ int CMainScene::Draw(ITGameCanvas* pTGCanvas)
 {
 	if(pTGCanvas)
 	{
-		pTGCanvas->TGC_Clear(0xFFFF0000);
+	//	pTGCanvas->TGC_Clear(0x80FFFFFF);
 
-		TGRect rc = {10.0f , 60.0f , 50.0f , 100.0f };
-		pTGCanvas->TGC_DrawRect(0xFF00FF00 , 1.0f, &rc);
- 		if(m_pTex)
- 		{
-// 			TGSize sz;
-// 			m_pTex->GetSize( &sz );
-// 			TGRect rcDest = {10.0f , 10.0f ,10.0f + sz.cx  , 10.0f + sz.cy};
-			pTGCanvas->TGC_DrawImage(m_pTex , 10.0f , 10.0f);	
- 		}
-		TGRect rcText = {10.0f , 60.0f , 50.0f , 100.0f };
-		pTGCanvas->TGC_DrawText("TestText" , 0xFF0000FF, &rcText , 0 );
+		if(m_pTex)
+  		{
+ 			TGSize sz;
+ 			m_pTex->GetSize( &sz );
+ 			TGRect rcDest = {10.0f , 10.0f ,10.0f + sz.cx  , 10.0f + sz.cy};
+ 			pTGCanvas->TGC_DrawImage(m_pTex , 10.0f , 10.0f);	
+  		}
+ 		TGRect rc = {10.0f , 60.0f , 150.0f , 200.0f };
+ 		pTGCanvas->TGC_DrawRect(0xFFFF00FF , 1.0f, &rc);
+// 
+// 
+// 		TGRect rcText = {10.0f , 60.0f , 150.0f , 200.0f };
+	//	pTGCanvas->TGC_DrawText("TestText" , 0xFF0000FF, &rcText , 0 );
 	}
 	return 0;
 }

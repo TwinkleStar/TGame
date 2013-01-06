@@ -14,7 +14,6 @@ CTGFileAndroid::CTGFileAndroid(ITGameSystem* pSys , AAssetManager*	pAssetMgr)
 	m_pSys		= pSys;
 	m_pAssetMgr	= pAssetMgr;
 	m_pAsset	= NULL;
-	m_pAssetMgr
 }
 
 CTGFileAndroid::~CTGFileAndroid()

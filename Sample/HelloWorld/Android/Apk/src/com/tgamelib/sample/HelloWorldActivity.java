@@ -17,7 +17,7 @@ public class HelloWorldActivity extends Activity {
 
 //		mGLView = new TGameGLSrufaceView(this);
 		
-
+	//	mGLView.setEGLConfigChooser(8,8,8,8,16,0);
 	    setContentView(mGLView);
 	}
 
