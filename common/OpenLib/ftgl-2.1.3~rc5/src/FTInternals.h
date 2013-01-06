@@ -71,6 +71,8 @@
         #elif __APPLE_CC__
             #include <OpenGL/gl.h>
             #include <OpenGL/glu.h>
+		#elif ANDROID_NDK
+			#include <GLES/gl.h>
         #else
             #include <GL/gl.h>
             #if defined (__sun__) && !defined (__sparc__)

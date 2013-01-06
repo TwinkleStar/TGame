@@ -31,6 +31,9 @@
     <Filter Include="Platforms\Android">
       <UniqueIdentifier>{541c0136-9386-425b-99b8-d43ed5e4b59d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="OpenLib\ftgl">
+      <UniqueIdentifier>{936b6f25-0bba-4a21-a1a6-3b995ea735da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\..\Include\ITGameCanvas.h">

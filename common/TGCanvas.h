@@ -4,6 +4,7 @@
 
 
 class ITGameCanvas;
+class FTGLPixmapFont;
 class CTGCanvas : public ITGameCanvas
 {
 public:
@@ -26,7 +27,7 @@ public:
 
 	int TGC_DrawImage(ITGGLTexture* pTex , TGRect* pRtDst , TGRect* pRtSrc , float fOpacity);
 
-	int TGC_DrawText(const TG_WCHAR* szText , TGCOLOR cl , TGRect* pRect , int nFormat);
+	int TGC_DrawText(char* szText , TGCOLOR cl , TGRect* pRect , int nFormat);
 
 	virtual int TGC_End();
 
@@ -36,6 +37,8 @@ protected:
 
 	int		m_nWidth;
 	int		m_nHeight;
+
+	FTGLPixmapFont*	m_pFTGLfont;
 };
 
 

@@ -11,7 +11,7 @@
 class CTGFileAndroid : public ITGFile
 {
 public:
-	CTGFileAndroid(AAssetManager*	pAssetMgr);
+	CTGFileAndroid(ITGameSystem* pSys , AAssetManager*	pAssetMgr);
 	virtual ~CTGFileAndroid();
 
 	int  Open(const char* szFile , int nOpen);
@@ -23,6 +23,7 @@ public:
 	void Release();
 
 protected:
+	ITGameSystem*	m_pSys;
 	AAssetManager*	m_pAssetMgr;
 	AAsset*			m_pAsset;
 };

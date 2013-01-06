@@ -19,6 +19,7 @@ int CMainScene::Begin()
 {
 	if(m_pSys)
 	{
+		m_pSys->Log(0 , "hello.png");
 		m_pSys->LoadTGGLTexture("hello.png" , &m_pTex);
 		
 		return 1;
@@ -39,10 +40,15 @@ int CMainScene::Draw(ITGameCanvas* pTGCanvas)
 
 		TGRect rc = {10.0f , 60.0f , 50.0f , 100.0f };
 		pTGCanvas->TGC_DrawRect(0xFF00FF00 , 1.0f, &rc);
-		if(m_pTex)
-		{
-			pTGCanvas->TGC_DrawImage(m_pTex , &rc , &rc , 1.0f);
-		}
+ 		if(m_pTex)
+ 		{
+// 			TGSize sz;
+// 			m_pTex->GetSize( &sz );
+// 			TGRect rcDest = {10.0f , 10.0f ,10.0f + sz.cx  , 10.0f + sz.cy};
+			pTGCanvas->TGC_DrawImage(m_pTex , 10.0f , 10.0f);	
+ 		}
+		TGRect rcText = {10.0f , 60.0f , 50.0f , 100.0f };
+		pTGCanvas->TGC_DrawText("TestText" , 0xFF0000FF, &rcText , 0 );
 	}
 	return 0;
 }

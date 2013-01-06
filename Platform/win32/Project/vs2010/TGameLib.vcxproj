@@ -72,8 +72,8 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>TGAMELIB_WIN32;WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>FTGL_LIBRARY_STATIC;TGAMELIB_WIN32;WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng;$(TGAME_ROOT)\common\OpenLib\ftgl-2.1.3~rc5\src;$(TGAME_ROOT)\common\openlib\freetype-2.4.11\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -101,8 +101,8 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
     <ClCompile>
       <PreprocessorDefinitions>TGAMELIB_ANDROID</PreprocessorDefinitions>
-      <AdditionalOptions>-lGLESv1_CM -landroid %(AdditionalOptions)</AdditionalOptions>
-      <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include;$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng;</AdditionalIncludeDirectories>
+      <AdditionalOptions>-lGLESv1_CM %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalIncludeDirectories>$(TGAME_ROOT)\Include;$(TGAME_ROOT)\common\openlib\zlib;$(TGAME_ROOT)\common\openlib\libpng;$(TGAME_ROOT)\common\openlib\freetype-2.4.11\include;$(TGAME_ROOT)\common\openlib\\ftgl-2.1.3~rc5\src</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>

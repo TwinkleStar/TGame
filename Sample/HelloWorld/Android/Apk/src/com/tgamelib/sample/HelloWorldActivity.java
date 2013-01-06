@@ -13,9 +13,9 @@ public class HelloWorldActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		
 		assetManager = getAssets();
-
 		mGLView = new TGameGLSrufaceView(this , assetManager);
-		
+
+//		mGLView = new TGameGLSrufaceView(this);
 		
 
 	    setContentView(mGLView);
@@ -24,7 +24,7 @@ public class HelloWorldActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_gwar, menu);
+		getMenuInflater().inflate(R.menu.activity_hello_world, menu);
 		return true;
 	}
 	@Override

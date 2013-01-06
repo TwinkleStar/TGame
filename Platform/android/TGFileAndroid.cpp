@@ -8,11 +8,13 @@
 #include "TGame.h"
 #include "TGFileAndroid.h"
 
-
-CTGFileAndroid::CTGFileAndroid(AAssetManager*	pAssetMgr)
+// -landroid 
+CTGFileAndroid::CTGFileAndroid(ITGameSystem* pSys , AAssetManager*	pAssetMgr)
 {
+	m_pSys		= pSys;
 	m_pAssetMgr	= pAssetMgr;
 	m_pAsset	= NULL;
+	m_pAssetMgr
 }
 
 CTGFileAndroid::~CTGFileAndroid()
@@ -22,16 +24,20 @@ CTGFileAndroid::~CTGFileAndroid()
 
 int  CTGFileAndroid::Open(const char* szFile , int nOpen)
 {
+	m_pSys->Log(0 , "CTGFileAndroid Open");
+	m_pSys->Log(0 , szFile);
 	if(m_pAssetMgr)
 	{
 		m_pAsset = AAssetManager_open(m_pAssetMgr , szFile , AASSET_MODE_UNKNOWN);
 
 		if(m_pAsset)
 		{
-			return 1;
+			m_pSys->Log(0 , "CTGFileAndroid Open - Ok");
+			return TGAME_OK;
 		}
+		m_pSys->Log(0 , "CTGFileAndroid Open - Fail");
 	}
-	return 0;
+	return TGAME_FAIL;
 }
 
 int CTGFileAndroid:: GetSize()
@@ -70,7 +76,7 @@ int  CTGFileAndroid::Read(char* pBuf , int nBufSize , int* pnRead)
 	if(m_pAsset)
 	{
 		*pnRead = AAsset_read(m_pAsset , pBuf , nBufSize);
-		return 1;
+		return TGAME_OK;
 	}
 	return 0;
 }

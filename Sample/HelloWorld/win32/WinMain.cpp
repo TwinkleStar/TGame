@@ -12,6 +12,8 @@
 
 #ifdef _DEBUG
 #pragma comment(lib, "TGame_Win32_d.lib")
+#pragma comment(lib, "freetype2411_D.lib")
+#pragma comment(lib, "ftgl_static_d.lib")
 #else
 #pragma comment(lib, "TGame_Win32.lib")
 #endif //

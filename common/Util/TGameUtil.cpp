@@ -67,12 +67,12 @@ int			LoadPng(ITGFile* pTGFile , TGameDIB* pDIB)
 	{
 		png_set_gray_to_rgb(pRead);
 	}
-
+	
 	if (bit_depth == 16)
 		png_set_strip_16(pRead);
 
 
-	png_set_bgr(pRead);
+//	png_set_bgr(pRead);
 
 	//		png_set_IHDR(pRead , pRead_Info , int_p_NULL, int_p_NULL, int_p_NULL )
 	png_read_update_info(pRead, pRead_Info);

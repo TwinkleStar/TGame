@@ -11,6 +11,9 @@
 #define		STATE_CANVAS_WIDTH		0x0001
 #define		STATE_CANVAS_HEIGHT		0x0002
 
+#define		LOG_LV_STATUS			0x0001
+#define		LOG_LV_WARNING			0x0002
+#define		LOG_LV_ERROR			0x0003
 
 
 class ITGameMain;
@@ -39,6 +42,8 @@ public:
 	virtual	void Release() = 0;
 
 	virtual	unsigned int GetTick() = 0;
+
+	virtual void Log(int nLv , const char* szLog ,...) = 0;
 };
 
 

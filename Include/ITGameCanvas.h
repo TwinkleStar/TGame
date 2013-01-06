@@ -21,7 +21,7 @@ public:
 
 	virtual	int TGC_DrawImage(ITGGLTexture* pTex , TGRect* pRtDst , TGRect* pRtSrc , float fOpacity = 1.0f)  = 0;
 
-	virtual	int TGC_DrawText(const TG_WCHAR* szText , TGCOLOR cl , TGRect* pRect , int nFormat) = 0;
+	virtual	int TGC_DrawText(char* szText , TGCOLOR cl , TGRect* pRect , int nFormat) = 0;
 
 	virtual int TGC_End() = 0;
 };

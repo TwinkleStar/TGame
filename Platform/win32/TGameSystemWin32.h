@@ -37,6 +37,8 @@ public:
 
 	unsigned int GetTick();
 
+	void Log(int nLv , const char* szLog ,...){};
+
 	////////////////////////////////////////
 
 	int MsgProc(UINT msg , WPARAM wParam , LPARAM lParam , LRESULT* pRt);

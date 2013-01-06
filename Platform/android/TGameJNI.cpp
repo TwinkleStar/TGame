@@ -18,25 +18,32 @@ typedef union {
 TGAME_CONTEXT*	gTGameContext = NULL;
 
 
-static jint InitTGame(JNIEnv *env, jobject thiz ,jint nVer , jobject assetManager) 
+static jint InitTGame(JNIEnv *env, jobject thiz  , jobject assetManager) 
+//static jint InitTGame(JNIEnv *env, jobject thiz  , jint a) 
 {
-	if(nVer == 0)
-	{
+	
+
+
 		if(gTGameContext && gTGameContext->pMain && gTGameContext->pSys)
 		{
-			AAssetManager* pAssetMgr =  AAssetManager_fromJava(env, assetManager);
+ 			AAssetManager* pAssetMgr =  AAssetManager_fromJava(env, assetManager);
 
-			CTGameSystemAndroid* pSysAndroid = static_cast<CTGameSystemAndroid*>(gTGameContext->pSys);
-			if(pSysAndroid)
+			if(pAssetMgr == NULL)
 			{
-				pSysAndroid->SetAssetManager(pAssetMgr);
+				gTGameContext->pSys->Log(0, "AAssetManager_fromJava Fail");
 			}
+
+ 			CTGameSystemAndroid* pSysAndroid = static_cast<CTGameSystemAndroid*>(gTGameContext->pSys);
+ 			if(pSysAndroid)
+ 			{
+ 				pSysAndroid->SetAssetManager(pAssetMgr);
+ 			}
 
 			gTGameContext->pMain->OnInit(gTGameContext->pSys);
 			
 			return 1;
 		}
-	}
+
 	return 0;
 }
 
@@ -56,7 +63,8 @@ J=long S=short V=void Z=boolean
 */
 
 static JNINativeMethod methods[] = {
-	{"InitTGame", "(Ljava/lang/Object;I)I", (void*)InitTGame },
+//	{"InitTGame", "(Ljava/lang/Object;)I", (void*)InitTGame },
+	{"InitTGame", "(Landroid/content/res/AssetManager;)I", (void*)InitTGame },
 	{"DoRender", "()I", (void*)DoRender },
 };
 
@@ -92,7 +100,7 @@ int		TGameOnLoad(JavaVM* vm, const char* szClassName , ITGameMain* pTGameMain)
 							{
 								gTGameContext->pSys		= pSys;
 								gTGameContext->pMain	= pTGameMain;
-								
+							//	gTGameContext->pMain->OnInit(pSys);
 							}
 						}
 					}

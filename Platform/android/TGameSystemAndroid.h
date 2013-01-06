@@ -43,8 +43,11 @@ public:
 
 	unsigned int GetTick();
 
+	void Log(int nLv ,const  char* szLog ,...);
+
 	int	SetAssetManager(AAssetManager*	 pAssetMgr);
 
+	
 protected:
 	ITGameMain*		m_pMain;
 

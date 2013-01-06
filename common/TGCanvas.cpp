@@ -14,6 +14,9 @@
 #include <GLES/gl.h>
 #endif //TGAMELIB_ANDROID
 
+//#pragma comment(lib, "ftgl_static_d.lib")
+#include  <FTGL/ftgl.h>
+
 
 
 
@@ -27,17 +30,23 @@ CTGCanvas::CTGCanvas()
 
 	m_nWidth	= 0;
 	m_nHeight	= 0;
+
+
+	m_pFTGLfont = new FTGLPixmapFont("C:/Android/NanumGothicLight.ttf");
+
+
 }
 
 CTGCanvas::~CTGCanvas()
 {
+	
 
 }
 
 
 int CTGCanvas::TGC_Init(int nWidth , int nHeight)
 {
-	glViewport(0,0,nWidth , nHeight);
+//	glViewport(0,0,nWidth , nHeight);
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
 	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);				// Black Background
 	glEnable(GL_BLEND);
@@ -156,16 +165,16 @@ int CTGCanvas::TGC_DrawImage(ITGGLTexture* pTex , float x , float y)
  
  			glColor4f (TGCOLOR_TO_4F(0xFFFFFFFF));
 			GLfloat squareVertices[] = {
-				x, y, 0.0f,								// Top left
-				x + (sz.cx >> 2), y, 0.0f,              // Bottom left
-				x + (sz.cx >> 2),y + (sz.cy >> 2), 0.0,	// Bottom right
-				x,y + (sz.cy >> 2), 0.0                 // Top right
+				x , y, 0.0f,								// Top left
+				x , y + (sz.cy), 0.0f,              // Bottom left
+				x + (sz.cx),y + (sz.cy), 0.0,	// Bottom right
+				x + (sz.cx),y , 0.0                 // Top right
 			};
 			const GLshort squareTextureCoords[] = {
-				0, 1,       // top left
-				0, 0,       // bottom left
-				1, 0,       // bottom right
-				1, 1        // top right
+				0, 0,       // top left
+				0, 1,       // bottom left
+				1, 1,       // bottom right
+				1, 0        // top right
 			};
 			glVertexPointer(3, GL_FLOAT, 0, squareVertices);
 			glEnableClientState(GL_VERTEX_ARRAY);
@@ -251,9 +260,18 @@ int CTGCanvas::TGC_DrawImage(ITGGLTexture* pTex , TGRect* pRtDst , TGRect* pRtSr
 	return TGAME_INVALID_PARAM;
 }
 
-int CTGCanvas::TGC_DrawText(const TG_WCHAR* szText , TGCOLOR cl , TGRect* pRect , int nFormat)
+int CTGCanvas::TGC_DrawText(char* szText , TGCOLOR cl , TGRect* pRect , int nFormat)
 {
+	if(m_pFTGLfont)
+	{
+		m_pFTGLfont->FaceSize(32);
+		
+		m_pFTGLfont->Render("Hello World!");
+		
+//		ftglRenderFont(m_pFTGLfont, "Hello World!", FTGL_RENDER_ALL);
 
+		return TGAME_OK;
+	}
 	return TGAME_NOT_SUPPORT;
 }
 

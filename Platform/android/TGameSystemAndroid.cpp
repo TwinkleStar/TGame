@@ -1,9 +1,12 @@
 
 #ifdef TGAMELIB_ANDROID
 
+#include <stdio.h>
+#include <stdarg.h>
 #include <sys/time.h>
 #include <jni.h>
 #include <android/asset_manager.h>
+#include <android/log.h>
 
 #include "TGameSystemAndroid.h"
 #include "TGFileAndroid.h"
@@ -38,7 +41,7 @@ int CTGameSystemAndroid::Initialize(ITGameMain* pMain)
 		m_pTGCanvas	 = new CTGCanvas;
 		m_pTGCanvas->TGC_Init(800, 480);
 
-		
+		Log(LOG_LV_STATUS , "TGameSystem Initialize - OK");
 		return TGAME_OK;
 	}
 	return 0;
@@ -79,7 +82,7 @@ int CTGameSystemAndroid::Create(int nID , void** ppObj)
 		*ppObj = NULL;
 		if(nID == ID_TGAMEFILE)
 		{
-			*ppObj = reinterpret_cast<void*>(new CTGFileAndroid(m_pAssetMgr));
+			*ppObj = reinterpret_cast<void*>(new CTGFileAndroid(this , m_pAssetMgr));
 		}
 		if(*ppObj)
 		{
@@ -93,21 +96,31 @@ int CTGameSystemAndroid::Create(int nID , void** ppObj)
 
 int CTGameSystemAndroid::LoadTGGLTexture(const char* szFile , ITGGLTexture** ppTexture)
 {
+	
 	if(szFile && ppTexture)
 	{
-		CTGFileAndroid* pFile = new CTGFileAndroid(m_pAssetMgr);
+		Log(LOG_LV_STATUS , "LoadTGGLTexture - Start %s" , szFile);
+		CTGFileAndroid* pFile = new CTGFileAndroid(this, m_pAssetMgr);
 
 		if(IS_TGAME_OK(pFile->Open(szFile , TGFILE_READ)))
 		{
+			Log(LOG_LV_STATUS , "LoadTGGLTexture - FileOpen Ok %s" , szFile);
 			CTGGLTexture* pTex = new CTGGLTexture;
 			if(IS_TGAME_OK(pTex->Load(pFile)))
 			{
 				*ppTexture = reinterpret_cast<ITGGLTexture*>(pTex);
+				Log(LOG_LV_STATUS , "LoadTGGLTexture - OK %s " , szFile);
 				return TGAME_OK;
 			}
+			else
+			{
+				Log(LOG_LV_ERROR , "LoadTGGLTexture - %s Texture Load Fail" , szFile);
+			}
 			pFile->Release();
-
-
+		}
+		else
+		{
+			Log(LOG_LV_ERROR , "LoadTGGLTexture - %s File Open Fail!" , szFile);
 		}
 		return TGAME_FAIL;
 	}
@@ -125,9 +138,12 @@ int CTGameSystemAndroid::OnFrame()
 	{
 		if(m_pTGameLoop->OnProcess() == TGAME_OK)
 		{
-			m_pTGCanvas->TGC_Begin();
+			m_pTGCanvas->TGC_Init(480, 800);
+	//		m_pTGCanvas->TGC_Begin();
 			
 			m_pTGameLoop->DoRender(m_pTGCanvas);
+
+		//	TGC_End();
 			return 1;
 		}
 	}	
@@ -157,6 +173,16 @@ unsigned int CTGameSystemAndroid::GetTick()
 //	gettimeofday(&now, NULL);
 	return (unsigned int)(now.tv_sec*1000 + now.tv_usec/1000);
 }
+
+void CTGameSystemAndroid::Log(int nLv , const char* szLog ,...)
+{
+	va_list     argp;  
+	char        szBuf[512];  
+	va_start(argp, szLog);  
+	sprintf(szBuf, szLog, argp);  
+	va_end(argp);  
+	__android_log_print( ANDROID_LOG_ERROR , "TGameLog", szBuf);  
+}	
 
 int	CTGameSystemAndroid::SetAssetManager(AAssetManager*	 pAssetMgr)
 {
