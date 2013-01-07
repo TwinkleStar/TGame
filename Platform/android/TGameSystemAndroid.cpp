@@ -39,7 +39,7 @@ int CTGameSystemAndroid::Initialize(ITGameMain* pMain)
 
 		m_pTGameLoop = new CTGameLoop(this);
 		m_pTGCanvas	 = new CTGCanvas;
-		m_pTGCanvas->TGC_Init(800, 480);
+//		m_pTGCanvas->TGC_Init(800, 480);
 
 		Log(LOG_LV_STATUS , "TGameSystem Initialize - OK");
 		return TGAME_OK;
@@ -179,9 +179,22 @@ void CTGameSystemAndroid::Log(int nLv , const char* szLog ,...)
 	va_list     argp;  
 	char        szBuf[512];  
 	va_start(argp, szLog);  
-	sprintf(szBuf, szLog, argp);  
+
+	vsprintf(szBuf, szLog , argp);  
+
+	int nPrio = ANDROID_LOG_DEFAULT;
+	switch(nLv)
+	{
+		case LOG_LV_STATUS:
+			nPrio = ANDROID_LOG_INFO;break;
+		case LOG_LV_WARNING:
+			nPrio = ANDROID_LOG_WARN;break;
+		case LOG_LV_ERROR:
+			nPrio = ANDROID_LOG_ERROR;break;
+	}
+	
+	__android_log_print( nPrio , "TGameLog", szBuf);  
 	va_end(argp);  
-	__android_log_print( ANDROID_LOG_ERROR , "TGameLog", szBuf);  
 }	
 
 int	CTGameSystemAndroid::SetAssetManager(AAssetManager*	 pAssetMgr)
