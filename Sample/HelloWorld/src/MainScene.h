@@ -20,6 +20,8 @@ public:
 protected:
 	ITGameSystem*	m_pSys;
 	ITGGLTexture*	m_pTex;
+
+	int				m_nX;
 };
 
 

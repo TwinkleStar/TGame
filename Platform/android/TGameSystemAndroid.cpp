@@ -139,11 +139,12 @@ int CTGameSystemAndroid::OnFrame()
 		if(m_pTGameLoop->OnProcess() == TGAME_OK)
 		{
 			m_pTGCanvas->TGC_Init(800, 480);
-	//		m_pTGCanvas->TGC_Begin();
-			
+
+			m_pTGCanvas->TGC_Begin();
+
 			m_pTGameLoop->DoRender(m_pTGCanvas);
 
-		//	TGC_End();
+			m_pTGCanvas->TGC_End();
 			return 1;
 		}
 	}	
@@ -158,6 +159,16 @@ int	CTGameSystemAndroid::SetState(int nStateID , int nState)
 int CTGameSystemAndroid::GetState(int nStateID)
 {
 
+	return 0;
+}
+
+int CTGameSystemAndroid::OnPause()
+{
+	return 0;
+}
+
+int CTGameSystemAndroid::OnResume()
+{
 	return 0;
 }
 
@@ -186,13 +197,13 @@ void CTGameSystemAndroid::Log(int nLv , const char* szLog ,...)
 	switch(nLv)
 	{
 		case LOG_LV_STATUS:
-			nPrio = ANDROID_LOG_INFO;break;
+			nPrio = ANDROID_LOG_DEBUG;break;
 		case LOG_LV_WARNING:
 			nPrio = ANDROID_LOG_WARN;break;
 		case LOG_LV_ERROR:
 			nPrio = ANDROID_LOG_ERROR;break;
 	}
-	
+//	nPrio = ANDROID_LOG_ERROR;
 	__android_log_print( nPrio , "TGameLog", szBuf);  
 	va_end(argp);  
 }	

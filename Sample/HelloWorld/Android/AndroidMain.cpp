@@ -12,7 +12,8 @@
 
 JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM* vm, void* reserved)
 {
-	const char* className = "com/tgamelib/sample/TGameRenderer";
+	const char* className = "com/tgamelib/sample/TGameAndroid";
+//	const char* className = "com/tgamelib/sample/TGameRenderer";
 //	const char* className = "com/tgamelib/sample/TGameGLSrufaceView";
 
 	CHelloWorld* pMain = new CHelloWorld;

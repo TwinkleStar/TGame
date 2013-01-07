@@ -13,12 +13,12 @@ import android.graphics.PixelFormat;
 
 @SuppressLint("ViewConstructor")
 public class TGameGLSrufaceView extends GLSurfaceView {
-	public TGameGLSrufaceView(Context context , AssetManager assetMgr) {
+	public TGameGLSrufaceView(Context context , TGameAndroid TGame) {
         super(context);
-        mRenderer	= new TGameRenderer(context);
+  
+        mRenderer	= new TGameRenderer(context , mTGame);
+
         setRenderer(mRenderer);
-        
-  //   getHolder().setFormat(PixelFormat.TRANSLUCENT);
         
     }
 	
@@ -28,42 +28,28 @@ public class TGameGLSrufaceView extends GLSurfaceView {
         }
         return true;
     }
-	
+
+	private TGameAndroid	mTGame;
 	private TGameRenderer	mRenderer;
-
-
-	
 }
-	class TGameRenderer implements GLSurfaceView.Renderer {
-		public TGameRenderer(Context context){
 
-		
-			mAssetMgr = context.getAssets();
-	
-		}
-	    public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-	    	
-			InitTGame( mAssetMgr );
-			
-	    }
-	
-	    public void onSurfaceChanged(GL10 gl, int w, int h) {
-	//	    	gl.glOrthof(0,w, h, 0, 1.0f, -1.0f);
-	    	
-	    }
-	
-	    public void onDrawFrame(GL10 gl) {
-	    	
-	    	gl.glClearColor(1.0f, 1.0f, 0, 0.5f);
-			DoRender();
-	    }
-	
-	    static{ 
-	    System.loadLibrary("HelloWorld"); 
-		} 	
-		static AssetManager	 mAssetMgr;
-		static native int InitTGame(AssetManager assetManager);
-	//	static native int InitTGame(int a);
-		static native int DoRender();
-	//	private TGameAndroid	mTGame;
+class TGameRenderer implements GLSurfaceView.Renderer {
+	public TGameRenderer(Context context , TGameAndroid	TGame){
+		mContext	= context;
+		mTGame		= TGame;
 	}
+	public void onSurfaceCreated(GL10 gl, EGLConfig config) {
+			mTGame.InitTGame(mContext.getAssets());
+	}
+	
+	public void onSurfaceChanged(GL10 gl, int w, int h) {
+
+	}
+	
+	public void onDrawFrame(GL10 gl) {
+		mTGame.DoRender();
+	}
+	
+	private Context			mContext;
+	private TGameAndroid	mTGame;
+}

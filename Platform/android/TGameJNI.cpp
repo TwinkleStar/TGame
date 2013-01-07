@@ -57,6 +57,31 @@ static jint DoRender(JNIEnv *env, jobject thiz)
 	return 0;
 }
 
+static jint onPause(JNIEnv *env, jobject thiz)
+{
+	if(gTGameContext && gTGameContext->pSys)
+	{
+		return gTGameContext->pSys->OnPause();
+	}
+	return 0;
+}
+
+static jint onResume(JNIEnv *env, jobject thiz)
+{
+	if(gTGameContext && gTGameContext->pSys)
+	{
+		return gTGameContext->pSys->OnResume();
+	}
+	return 0;
+}
+
+static jint onDestroy(JNIEnv *env, jobject thiz)
+{
+
+	return 0;
+}
+
+
 /*
 B=byte C=char D=double F=float I=int
 J=long S=short V=void Z=boolean
@@ -66,6 +91,9 @@ static JNINativeMethod methods[] = {
 //	{"InitTGame", "(Ljava/lang/Object;)I", (void*)InitTGame },
 	{"InitTGame", "(Landroid/content/res/AssetManager;)I", (void*)InitTGame },
 	{"DoRender", "()I", (void*)DoRender },
+	{"onPause", "()I", (void*)onPause },
+	{"onResume", "()I", (void*)onResume },
+	{"onDestroy", "()I", (void*)onDestroy },
 };
 
 int		TGameOnLoad(JavaVM* vm, const char* szClassName , ITGameMain* pTGameMain)
@@ -87,7 +115,7 @@ int		TGameOnLoad(JavaVM* vm, const char* szClassName , ITGameMain* pTGameMain)
 				clazz = env->FindClass(szClassName);
 				if (clazz != NULL) 
 				{
-					if(env->RegisterNatives(clazz, methods, 2) >= 0)
+					if(env->RegisterNatives(clazz, methods, 5) >= 0)
 					{
 						
 						gTGameContext = new TGAME_CONTEXT;

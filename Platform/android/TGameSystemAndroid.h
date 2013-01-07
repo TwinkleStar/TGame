@@ -39,6 +39,10 @@ public:
 
 	int GetState(int nStateID);
 
+	int OnPause();
+
+	int OnResume();
+
 	void Release();
 
 	unsigned int GetTick();

@@ -12,13 +12,13 @@ public class HelloWorldActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		assetManager = getAssets();
-		mGLView = new TGameGLSrufaceView(this , assetManager);
+		mTGame = new TGameAndroid(this);
 
-//		mGLView = new TGameGLSrufaceView(this);
-		
-	//	mGLView.setEGLConfigChooser(8,8,8,8,16,0);
-	    setContentView(mGLView);
+		mGLView = new TGameGLSrufaceView(this ,mTGame);
+
+		setContentView(mGLView);
+
+	
 	}
 
 	@Override
@@ -31,14 +31,24 @@ public class HelloWorldActivity extends Activity {
 	protected void onPause() {
 		super.onPause();
 	    mGLView.onPause();
+		mTGame.onPause();
 	}
 	@Override
     protected void onResume() {
         super.onResume();
         mGLView.onResume();
+		mTGame.onResume();
+    }
+	 @Override
+    protected void onDestroy(){
+    	
+     	
+		super.onDestroy();
     }
 
+
+	public	TGameAndroid	mTGame;
+
 	private GLSurfaceView 	mGLView;
-	static AssetManager assetManager;
 }
 

@@ -8,7 +8,7 @@ CMainScene::CMainScene(ITGameSystem* pSys)
 {
 	m_pSys = pSys;
 	m_pTex = NULL;
-
+	m_nX = 0;
 }
 
 CMainScene::~CMainScene()
@@ -29,6 +29,9 @@ int CMainScene::Begin()
 
 int CMainScene::OnProcess(unsigned int tick)
 {
+	m_nX++;
+	if(m_nX > 100)
+		m_nX = 0;
 	return TGAME_OK;
 }
 
@@ -43,7 +46,7 @@ int CMainScene::Draw(ITGameCanvas* pTGCanvas)
  			TGSize sz;
  			m_pTex->GetSize( &sz );
  			TGRect rcDest = {10.0f , 10.0f ,10.0f + sz.cx  , 10.0f + sz.cy};
- 			pTGCanvas->TGC_DrawImage(m_pTex , 10.0f , 10.0f);	
+ 			pTGCanvas->TGC_DrawImage(m_pTex , 10.0f + m_nX , 10.0f);	
   		}
  		TGRect rc = {10.0f , 60.0f , 150.0f , 200.0f };
  		pTGCanvas->TGC_DrawRect(0xFFFF00FF , 1.0f, &rc);
