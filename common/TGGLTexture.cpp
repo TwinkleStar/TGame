@@ -19,8 +19,9 @@
 #include "Util/TGameUtil.h"
 
 
-CTGGLTexture::CTGGLTexture()
+CTGGLTexture::CTGGLTexture(ITGameSystem* pSys)
 {
+	m_pSys			= pSys;
 	m_nWidth		= 0;
 	m_nHeight		= 0;
 	m_nBPP			= 0;
@@ -56,6 +57,7 @@ int		CTGGLTexture::Load(ITGFile* pFile)
 					m_nHeight	= dib.nHeight;
 					m_nBPP		= dib.nBpp;
 					m_pDIB		= dib.pDIB;
+					
 
 
 					glGenTextures(1 , &m_uTexID);
@@ -66,7 +68,7 @@ int		CTGGLTexture::Load(ITGFile* pFile)
 					glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_nWidth , m_nHeight , 0,    
 						GL_RGBA, GL_UNSIGNED_BYTE, m_pDIB); 
 					
-
+		//			eglMakeCurrent 
 					pFile->Release();
 					return TGAME_OK;
 				}
@@ -97,6 +99,40 @@ unsigned int	CTGGLTexture::GetTexID()
 	return m_uTexID;
 }
 
+int		CTGGLTexture::Refresh()
+{
+	if(m_pDIB)
+	{
+		if(glIsTexture( m_uTexID ) == 0)
+		{
+			m_pSys->Log(LOG_LV_STATUS , "Refresh glIsTexture false %d" , m_uTexID);
+
+			glGenTextures(1 , &m_uTexID);
+			m_pSys->Log(LOG_LV_STATUS , "glGenTextures %d" , m_uTexID);
+
+			
+// 			int nSize = m_nWidth * m_nHeight * m_nBPP;
+// 			memcpy(m_pDIB ,m_pBuffer, nSize  );
+
+			glBindTexture( GL_TEXTURE_2D, m_uTexID );
+// 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); //<7>   
+// 			glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); //<8> 
+
+			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, m_nWidth , m_nHeight , 0,    
+				GL_RGBA, GL_UNSIGNED_BYTE, m_pDIB); 
+
+			if(glIsTexture( m_uTexID ) == 0)
+			{
+				m_pSys->Log(LOG_LV_STATUS , "Refresh glIsTexture false %d" , m_uTexID);
+			}
+		}
+
+		
+		return 1;
+	}
+	return 0;
+}
+
 void	CTGGLTexture::Release()
 {
 	if(m_pDIB)
@@ -104,5 +140,6 @@ void	CTGGLTexture::Release()
 		delete [] m_pDIB;
 		m_pDIB = NULL;
 	}
+	
 	delete this;
 }

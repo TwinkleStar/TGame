@@ -1,4 +1,4 @@
-#ifdef TGAMELIB_ANDROID
+
 
 #include <stdlib.h>
 #include <android/asset_manager_jni.h>
@@ -140,4 +140,3 @@ int		TGameOnLoad(JavaVM* vm, const char* szClassName , ITGameMain* pTGameMain)
 	return JNI_ERR;
 }
 
-#endif //TGAMELIB_ANDROID

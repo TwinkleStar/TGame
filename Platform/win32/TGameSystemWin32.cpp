@@ -44,21 +44,21 @@ CTGameSystemWin32::~CTGameSystemWin32()
 
 }
 
-int CTGameSystemWin32::Initialize(ITGameMain* pMain)
-{
-	if(pMain)
-	{
-		m_pMain = pMain;
-
-		m_pTGameLoop = new CTGameLoop(this);
-
-		m_pTGCanvas	 = new CTGCanvasWin32;
-
-		
-		return TGAME_OK;
-	}
-	return TGAME_INVALID_PARAM;
-}
+// int CTGameSystemWin32::Initialize(ITGameMain* pMain)
+// {
+// 	if(pMain)
+// 	{
+// 		m_pMain = pMain;
+// 
+// 		m_pTGameLoop = new CTGameLoop(this);
+// 
+// 		m_pTGCanvas	 = new CTGCanvasWin32;
+// 
+// 		
+// 		return TGAME_OK;
+// 	}
+// 	return TGAME_INVALID_PARAM;
+// }
 
 OSType CTGameSystemWin32::GetOsType()
 {
@@ -105,113 +105,113 @@ int CTGameSystemWin32::Create(int nID , void** ppObj)
 	}
 	return TGAME_INVALID_PARAM;
 }
+// 
+// int CTGameSystemWin32::LoadTGGLTexture(const char* szFile ,ITGGLTexture** ppTexture)
+// {
+// 	if(szFile && ppTexture)
+// 	{
+// 		CTGFileWin32* pFile = new CTGFileWin32;
+// 
+// 		char szResPath[MAX_PATH] = {0,};
+// 		sprintf_s(szResPath , "res\\%s" , szFile);
+// 
+// 		if(IS_TGAME_OK(pFile->Open(szResPath , TGFILE_READ)))
+// 		{
+// 			CTGGLTexture* pTex = new CTGGLTexture;
+// 			if(IS_TGAME_OK(pTex->Load(pFile)))
+// 			{
+// 				*ppTexture = reinterpret_cast<ITGGLTexture*>(pTex);
+// 				return TGAME_OK;
+// 			}
+// 			pFile->Release();
+// 
+// 
+// 		}
+// 		return TGAME_FAIL;
+// 	}
+// 	return TGAME_INVALID_PARAM;
+// }
 
-int CTGameSystemWin32::LoadTGGLTexture(const char* szFile ,ITGGLTexture** ppTexture)
-{
-	if(szFile && ppTexture)
-	{
-		CTGFileWin32* pFile = new CTGFileWin32;
+// int CTGameSystemWin32::Run()
+// {
+// 	if(IS_TGAME_OK(CreateGLWindow()))
+// 	{
+// 		MSG	msg;
+// 		BOOL bRun = TRUE;
+// 		while(bRun)
+// 		{
+// 			if(PeekMessage(&msg , NULL , 0 , 0 , PM_REMOVE))
+// 			{
+// 				if(msg.message == WM_QUIT)
+// 				{
+// 					bRun = FALSE;
+// 				}
+// 				else
+// 				{
+// 					TranslateMessage(&msg);
+// 					DispatchMessage(&msg);
+// 				}
+// 			}
+// 			else
+// 			{
+// 				MainLoop();
+// 			}
+// 		}
+// 	}
+// 	return 0;
+// }
 
-		char szResPath[MAX_PATH] = {0,};
-		sprintf_s(szResPath , "res\\%s" , szFile);
-
-		if(IS_TGAME_OK(pFile->Open(szResPath , TGFILE_READ)))
-		{
-			CTGGLTexture* pTex = new CTGGLTexture;
-			if(IS_TGAME_OK(pTex->Load(pFile)))
-			{
-				*ppTexture = reinterpret_cast<ITGGLTexture*>(pTex);
-				return TGAME_OK;
-			}
-			pFile->Release();
-
-
-		}
-		return TGAME_FAIL;
-	}
-	return TGAME_INVALID_PARAM;
-}
-
-int CTGameSystemWin32::Run()
-{
-	if(IS_TGAME_OK(CreateGLWindow()))
-	{
-		MSG	msg;
-		BOOL bRun = TRUE;
-		while(bRun)
-		{
-			if(PeekMessage(&msg , NULL , 0 , 0 , PM_REMOVE))
-			{
-				if(msg.message == WM_QUIT)
-				{
-					bRun = FALSE;
-				}
-				else
-				{
-					TranslateMessage(&msg);
-					DispatchMessage(&msg);
-				}
-			}
-			else
-			{
-				MainLoop();
-			}
-		}
-	}
-	return 0;
-}
-
-int CTGameSystemWin32::OnFrame()
-{
-	if(IS_TGAME_OK(m_pTGameLoop->OnProcess()))
-	{
-		m_pTGameLoop->DoRender(m_pTGCanvas);
-	}
-	return 0;
-}
-
-int	CTGameSystemWin32::SetState(int nStateID , int nState)
-{
-	int nReturn = 0;
-	switch(nStateID)
-	{
-		case STATE_CANVAS_WIDTH:
-		{
-			if(nState > 0)
-			{
-				m_nWidth = nState;
-				nReturn = nState;
-			}
-			break;
-		}
-		case STATE_CANVAS_HEIGHT:
-		{
-			if(nState > 0)
-			{
-				m_nHeight = nState;
-				nReturn = nState;
-			}
-			break;
-		}
-	}
-	return nReturn;
-}
-
-int CTGameSystemWin32::GetState(int nStateID)
-{
-	switch(nStateID)
-	{
-		case STATE_CANVAS_WIDTH:
-		{
-			return m_nWidth;
-		}
-		case STATE_CANVAS_HEIGHT:
-		{
-			return m_nHeight;
-		}
-	}
-	return 0;
-}
+// int CTGameSystemWin32::OnFrame()
+// {
+// 	if(IS_TGAME_OK(m_pTGameLoop->OnProcess()))
+// 	{
+// 		m_pTGameLoop->DoRender(m_pTGCanvas);
+// 	}
+// 	return 0;
+// }
+// 
+// int	CTGameSystemWin32::SetState(int nStateID , int nState)
+// {
+// 	int nReturn = 0;
+// 	switch(nStateID)
+// 	{
+// 		case STATE_CANVAS_WIDTH:
+// 		{
+// 			if(nState > 0)
+// 			{
+// 				m_nWidth = nState;
+// 				nReturn = nState;
+// 			}
+// 			break;
+// 		}
+// 		case STATE_CANVAS_HEIGHT:
+// 		{
+// 			if(nState > 0)
+// 			{
+// 				m_nHeight = nState;
+// 				nReturn = nState;
+// 			}
+// 			break;
+// 		}
+// 	}
+// 	return nReturn;
+// }
+// 
+// int CTGameSystemWin32::GetState(int nStateID)
+// {
+// 	switch(nStateID)
+// 	{
+// 		case STATE_CANVAS_WIDTH:
+// 		{
+// 			return m_nWidth;
+// 		}
+// 		case STATE_CANVAS_HEIGHT:
+// 		{
+// 			return m_nHeight;
+// 		}
+// 	}
+// 	return 0;
+// }
 
 
 void CTGameSystemWin32::Release()

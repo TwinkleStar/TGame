@@ -7,7 +7,7 @@
 class CTGGLTexture : public ITGGLTexture
 {
 public:
-	CTGGLTexture();
+	CTGGLTexture(ITGameSystem*	pSys);
 	~CTGGLTexture();
 
 	int		Load(ITGFile* pFile);
@@ -16,9 +16,12 @@ public:
 
 	unsigned int	GetTexID();
 
+	int		Refresh();
+
 	void	Release();
 
 protected:
+	ITGameSystem*	m_pSys;
 	int		m_nWidth;
 	int		m_nHeight;
 	int		m_nBPP;

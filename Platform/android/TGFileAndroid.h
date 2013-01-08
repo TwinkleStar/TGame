@@ -1,6 +1,4 @@
 
-#ifdef TGAMELIB_ANDROID
-
 #ifndef _TGFILEANDROID_H__
 #define _TGFILEANDROID_H__
 
@@ -31,4 +29,3 @@ protected:
 
 
 #endif //_TGFILEANDROID_H__
-#endif //TGAMELIB_ANDROID

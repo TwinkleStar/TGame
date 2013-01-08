@@ -9,6 +9,7 @@ class ITGGLTexture
 public:
 	virtual int				GetSize(TGSize* pSize) = 0;
 	virtual unsigned int	GetTexID() = 0;
+	virtual int				Refresh() = 0;
 	virtual void			Release() = 0;
 };
 

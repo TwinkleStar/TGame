@@ -37,6 +37,7 @@
   </PropertyGroup>
   <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">
     <ConfigurationType>StaticLibrary</ConfigurationType>
+    <AndroidStlType>gnustl_static</AndroidStlType>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -128,6 +129,7 @@
     <ClInclude Include="..\..\..\..\common\OpenLib\zlib\zlib.h" />
     <ClInclude Include="..\..\..\..\common\OpenLib\zlib\zutil.h" />
     <ClInclude Include="..\..\..\..\common\TGameLoop.h" />
+    <ClInclude Include="..\..\..\..\common\TGameSystem.h" />
     <ClInclude Include="..\..\..\..\common\TGCanvas.h" />
     <ClInclude Include="..\..\..\..\common\TGGLTexture.h" />
     <ClInclude Include="..\..\..\..\common\Util\TGameTextFactory.h" />
@@ -143,12 +145,24 @@
     <ClInclude Include="..\..\..\..\Include\TGLayer.h" />
     <ClInclude Include="..\..\..\..\Include\TGObject.h" />
     <ClInclude Include="..\..\..\..\Include\TGScene.h" />
-    <ClInclude Include="..\..\..\android\TGameSystemAndroid.h" />
-    <ClInclude Include="..\..\..\android\TGCanvasAndroid.h" />
-    <ClInclude Include="..\..\..\android\TGFileAndroid.h" />
-    <ClInclude Include="..\..\TGameSystemWin32.h" />
-    <ClInclude Include="..\..\TGCanvasWin32.h" />
-    <ClInclude Include="..\..\TGFileWin32.h" />
+    <ClInclude Include="..\..\..\android\TGameSystemAndroid.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\android\TGCanvasAndroid.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\..\android\TGFileAndroid.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\TGameSystemWin32.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\TGCanvasWin32.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="..\..\TGFileWin32.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\..\common\OpenLib\libpng\png.c" />
@@ -182,19 +196,34 @@
     <ClCompile Include="..\..\..\..\common\OpenLib\zlib\uncompr.c" />
     <ClCompile Include="..\..\..\..\common\OpenLib\zlib\zutil.c" />
     <ClCompile Include="..\..\..\..\common\TGameLoop.cpp" />
+    <ClCompile Include="..\..\..\..\common\TGameSystem.cpp" />
     <ClCompile Include="..\..\..\..\common\TGCanvas.cpp" />
     <ClCompile Include="..\..\..\..\common\TGGLTexture.cpp" />
     <ClCompile Include="..\..\..\..\common\TGObject.cpp" />
     <ClCompile Include="..\..\..\..\common\TGScene.cpp" />
     <ClCompile Include="..\..\..\..\common\Util\TGameTextFactory.cpp" />
     <ClCompile Include="..\..\..\..\common\Util\TGameUtil.cpp" />
-    <ClCompile Include="..\..\..\android\TGameJNI.cpp" />
-    <ClCompile Include="..\..\..\android\TGameSystemAndroid.cpp" />
-    <ClCompile Include="..\..\..\android\TGCanvasAndroid.cpp" />
-    <ClCompile Include="..\..\..\android\TGFileAndroid.cpp" />
-    <ClCompile Include="..\..\TGameSystemWin32.cpp" />
-    <ClCompile Include="..\..\TGCanvasWin32.cpp" />
-    <ClCompile Include="..\..\TGFileWin32.cpp" />
+    <ClCompile Include="..\..\..\android\TGameJNI.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\android\TGameSystemAndroid.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\android\TGCanvasAndroid.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\..\android\TGFileAndroid.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\TGameSystemWin32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\TGCanvasWin32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\TGFileWin32.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Android'">true</ExcludedFromBuild>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

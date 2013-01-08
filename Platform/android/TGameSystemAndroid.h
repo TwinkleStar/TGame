@@ -1,11 +1,11 @@
 
-#ifdef TGAMELIB_ANDROID
 #ifndef _TGAMESYSTEMANDROID_H__
 #define _TGAMESYSTEMANDROID_H__
 
 
 #include "TGame.h"
 
+#include "../../common/TGameSystem.h"
 #include "../../common/TGameLoop.h"
 #include "../../common/TGCanvas.h"
 
@@ -15,13 +15,13 @@
 #include <jni.h>
 
 
-class CTGameSystemAndroid : public ITGameSystem
+class CTGameSystemAndroid : public CTGameSystem
 {
 public:
 	CTGameSystemAndroid();
 	~CTGameSystemAndroid();
 		
-	int Initialize(ITGameMain* pMain);
+//	int Initialize(ITGameMain* pMain);
 
 	OSType GetOsType();
 
@@ -29,19 +29,19 @@ public:
 
 	int Create(int nID , void** ppObj);
 
-	int LoadTGGLTexture(const char* szFile , ITGGLTexture** ppTexture);
-
-	int Run();
-
-	int OnFrame();
-
-	int	SetState(int nStateID , int nState);
-
-	int GetState(int nStateID);
-
-	int OnPause();
-
-	int OnResume();
+//	int LoadTGGLTexture(const char* szFile , ITGGLTexture** ppTexture);
+// 
+ 	int Run();
+// 
+// 	int OnFrame();
+// 
+// 	int	SetState(int nStateID , int nState);
+// 
+// 	int GetState(int nStateID);
+// 
+// 	int OnPause();
+// 
+// 	int OnResume();
 
 	void Release();
 
@@ -53,11 +53,11 @@ public:
 
 	
 protected:
-	ITGameMain*		m_pMain;
-
-	CTGameLoop*		m_pTGameLoop;
-
-	CTGCanvas*		m_pTGCanvas;
+// 	ITGameMain*		m_pMain;
+// 
+// 	CTGameLoop*		m_pTGameLoop;
+// 
+// 	CTGCanvas*		m_pTGCanvas;
 
 	JavaVM*			m_pJavaVM;
 
@@ -65,4 +65,3 @@ protected:
 };
 
 #endif //_TGAMESYSTEMANDROID_H__
-#endif //TGAMELIB_ANDROID

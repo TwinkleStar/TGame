@@ -156,6 +156,9 @@
     <ClInclude Include="..\..\..\android\TGFileAndroid.h">
       <Filter>Platforms\Android</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\..\common\TGameSystem.h">
+      <Filter>common</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\TGameSystemWin32.cpp">
@@ -289,6 +292,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\android\TGameJNI.cpp">
       <Filter>Platforms\Android</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\common\TGameSystem.cpp">
+      <Filter>common</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

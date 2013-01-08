@@ -151,6 +151,11 @@ int CTGCanvas::TGC_DrawImage(ITGGLTexture* pTex , float x , float y)
 	if(pTex)
 	{
 		GLuint uID = pTex->GetTexID();
+		if(!glIsTexture(uID))
+		{
+			pTex->Refresh();
+			uID = pTex->GetTexID();
+		}
 		if(uID)
 		{
 			
@@ -161,6 +166,7 @@ int CTGCanvas::TGC_DrawImage(ITGGLTexture* pTex , float x , float y)
 			glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
  			glEnable( GL_TEXTURE_2D );
   			
+			
 			glBindTexture(GL_TEXTURE_2D, uID);
  
  			glColor4f (TGCOLOR_TO_4F(0xFFFFFFFF));

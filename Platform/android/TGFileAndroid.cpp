@@ -1,6 +1,4 @@
 
-#ifdef TGAMELIB_ANDROID
-
 #include <stdio.h>
 #include <jni.h>
 #include <android/asset_manager.h>
@@ -102,4 +100,3 @@ void CTGFileAndroid::Release()
 	delete this;
 }
 
-#endif //TGAMELIB_ANDROID

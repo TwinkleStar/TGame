@@ -4,12 +4,14 @@
 
 #include "../../include/TGame.h"
 
+#include "../../common/TGameSystem.h"
 #include "../../common/TGameLoop.h"
+
 
 #include "TGCanvasWin32.h"
 
 
-class CTGameSystemWin32 : public ITGameSystem
+class CTGameSystemWin32 : public CTGameSystem
 {
 public:
 	CTGameSystemWin32();
